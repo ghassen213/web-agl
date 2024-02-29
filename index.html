@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Flowers shop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+  
+  <!-- main container -->
+
+  <main class="main-container">
+    <section class="section1">
+      <!-- Header -->
+
+      <header>
+        <div class="header">
+          <div class="header-left">
+            <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
+            <span>Boutique Name</span>
+          </div>
+          <div class="header-center">
+              <a href="#1" >Offers</a>
+              <a href="#2">Galery</a>
+              <a href="#3">Products</a>
+              <a href="#4">Contact us</a>
+          </div>
+          <div class="header-right">
+            <a id="signupButton" href="signUp.html" class="button">Sign Up</a>
+            <a id="loginButton" href="signIn.html" class="button">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- main image container -->
+
+      <div class="main-img-container"></div>
+      <div class="main-text">
+        <h2 class="caption">Welcome To Our Shop</h2>
+        <h3 class="sub-caption">we give you everything you want </h3><br>
+        <div class="order-btn">
+          <a href="catalogue.html">ORDER NOW</a>
+        </div>
+        <div>
+          <span class="phone">+216 71-235-095</span>
+        </div>
+      </div>
+      
+    </section>
+
+    <!--  best offers  section-->
+
+    <section class="section2">
+      <div class="wrapper">
+        <div class="divtittle">
+          <h3 class="title1" id="1">Best offers</h3>
+        
+        </div>
+        
+        <div class="offers">
+          <div class="left-offer offer">
+            <div class="left-offer-info">
+              <span class="name-price">Turkish Rose</span>
+              <span>$99 <a href="catalogue.html"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a> 
+              </span>
+              <div class="discount">-50%</div>
+            </div>
+            <div class="left-offer-img">
+              <img src="./images/turkishrose.png" alt="Turkish Rose">
+            </div>
+          </div>
+          <div class="offers-right">
+            <div class="upper-right-offer right-offer offer">
+              <div class="right-offer-info">
+                <div>
+                  <span class="name-price">Damask Rose</span>
+                  <span>$49 <a href="catalogue.html"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a></span>
+                </div>
+                <div class="discount2">-25%</div>
+                
+              </div>
+              <div class="right-offer-img">
+                <img src="./images/damaskrose.png" alt="Damask Rose">
+              </div>
+            </div>
+            <div class="lower-right-offer right-offer offer">
+              <div class="right-offer-info">
+                <div>
+                  <span class="name-price" >Assorted Colors</span>
+                  <span id="2">$39 <a href="catalogue.html"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a></span>
+                </div>
+                <div class="discount3">-10%</div>
+                
+              </div>
+              <div class="right-offer-img">
+                <img src="./images/assortedcolors.png" alt="Assorted Colors">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery section -->
+
+    <section id="crafts-gallery" class="section3">
+      <nav class="gallery-nav-bar">
+        <h3 class="title">Our Gallery</h3>
+        <div class="gallery-arrows">
+            <div class="fa fa-angle-left" id="backbtn"></div>
+            <div class="fa fa-angle-right" id="nextbtn"></div>
+        </div>
+      </nav>
+      <div class="slideshow">
+        <div>
+          <span><img src="./images/bridalbq1.png" alt="gallery-slide"></span>
+          <span><img src="./images/bridalbq2.png" alt="gallery-slide"></span>
+          <span><img src="./images/bridalbq3.png" alt="gallery-slide"></span> 
+        </div>
+        <div>
+          <span><img src="./images/bridalbq2.png" alt="gallery-slide"></span>
+          <span><img src="./images/bridalbq3.png" alt="gallery-slide"></span> 
+          <span><img src="./images/bridalbq1.png" alt="gallery-slide"></span>
+        </div>
+      </div>
+      <div class="pagination">
+        <div class="ball1 ball"></div>
+        <div class="ball2 ball"></div>
+        <div class="ball3 ball"></div>
+        <div class="ball4 ball"></div>
+        <div class="ball5 ball"></div>
+      </div>
+    </section>
+  
+  <!-- products section -->
+    <section class="section4">
+      <div class="wrapper">
+        <div class="divtittle">
+          <h3 class="title2" id="3">Our Products</h3>
+        </div>
+        <div class="samples-box">
+          <div class="product1 product">
+            <a href=""><i class="fa fa-heart" ></i></a>
+            <div class="img-frame">
+              <a href="product.html">
+                <img src="./images/trjar.png" alt="Turkish Rose">
+              </a>
+            </div>
+            <span>Flower 1</span>
+            <form class="quantity">
+              <input type="radio" id="q1" name="quantity1" checked><label for="q1">9 unt.</label>
+              <input type="radio" id="q2" name="quantity1"><label for="q2">15 unt.</label>
+              <input type="radio" id="q3" name="quantity1"><label for="q3">21 unt.</label>
+            </form>
+            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+          </div>
+          <div class="product2 product">
+            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            <div class="img-frame">
+              <a href="product.html">
+                <img src="./images/rfjar.png" alt="Rose Flower">
+              </a>
+            </div>
+            <span>Flower 2</span>
+            <form class="quantity">
+              <input type="radio" id="q4" name="quantity2" checked><label for="q4">9 unt.</label>
+              <input type="radio" id="q5" name="quantity2"><label for="q5">15 unt.</label>
+              <input type="radio" id="q6" name="quantity2"><label for="q6">21 unt.</label>
+            </form>     
+            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+          </div>
+          <div class="product3 product">
+            <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            <div class="img-frame">
+              <a href="product.html">
+                <img src="./images/acjar.png" alt="Assorted Colors">
+              </a>
+            </div>
+            <span>Flower 3</span>
+            <form class="quantity">
+              <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
+              <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
+              <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
+            </form>
+            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" ></i></a></span>
+          </div>
+          <div class="product4 product">
+            <a href=""><i class="fa fa-heart-o" ></i></a>
+            <div class="img-frame">
+              <a href="product.html">
+                <img src="./images/trjar.png" alt="Turkish Rose">
+              </a>
+            </div>
+            <span>Flower 4</span>
+            <form class="quantity">
+              <input type="radio" id="q10" name="quantity" checked><label for="q10">9 unt.</label>
+              <input type="radio" id="q11" name="quantity"><label for="q11">15 unt.</label>
+              <input type="radio" id="q12" name="quantity"><label for="q12">21 unt.</label>
+            </form>
+            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" ></i></a></span>
+          </div>
+          <div class="product5 product">
+            <a href=""><i class="fa fa-heart-o" ></i></a>
+            <div class="img-frame">
+              <a href="product.html">
+                <img src="./images/rfjar.png" alt="Rose Flower">
+              </a>
+            </div>
+            <span>Flower 5</span>
+            <form class="quantity">
+              <input type="radio" id="q13" name="quantity" checked><label for="q13">9 unt.</label>
+              <input type="radio" id="q14" name="quantity"><label for="q14">15 unt.</label>
+              <input type="radio" id="q15" name="quantity"><label for="q15">21 unt.</label>
+            </form>
+            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart"></i></a></span>
+          </div>
+          <div class="product6 product">
+            <a href=""><i class="fa fa-heart-o" ></i></a>
+            <div class="img-frame">
+              <a href="product.html">
+                <img src="./images/acjar.png" alt="Assorted Colors">
+              </a>
+            </div>
+            <span>Flower 6</span>
+            <form class="quantity">
+              <input type="radio" id="q16" name="quantity" checked><label for="q16">9 unt.</label>
+              <input type="radio" id="q17" name="quantity"><label for="q17">15 unt.</label>
+              <input type="radio" id="q18" name="quantity"><label for="q18">21 unt.</label>
+            </form>
+            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+          </div>
+        </div> 
+        <a href="catalogue.html" class="show-more-btn">Show More</a>
+        
+      </div>  
+    </section>  
+
+  <!-- feedback section  -->
+
+    <section class="section5">
+      <div class="testimonials-bar">
+        <h3 class="title">Our Customers feedback</h3>
+        <div class="gallery-arrows">
+            <div class="fa fa-angle-left" id="BackBtn2"></div>
+            <div class="fa fa-angle-right" id="NextBtn2"></div>
+        </div>
+      </div>
+      <div class="testimonials-box">
+        <div class="box1">
+          <div class="customer">
+            <div class="customer-info inner-box">
+              <div class="photo-container">
+                <img src="./images/customer1.png" alt="customer-photo">
+              </div>
+              <span>Susana Alberta</span> 
+              <span class="customer-description">09-07-2023 19:22</span>
+              <i class="fa fa-vk"></i>
+          
+              <i class="fa fa-facebook" ></i>
+            </div> 
+            <div class="testimonial-text inner-box">
+              "I recently had the pleasure of ordering flowers from [Boutique Name] , and I couldn't be more impressed with the experience! Navigating the website was a breeze, and I found exactly what I was looking for within minutes."
+            </div>
+          </div>
+          <div class="customer">
+            <div class="customer-info inner-box">
+              <div class="photo-container">
+                <img src="./images/customer2.png" alt="customer-photo">
+              </div>
+              <span>Janneth Carol</span> 
+              <span class="customer-description">10-07-2023 10:25</span>
+              <i class="fa fa-vk" aria-hidden="true"></i>
+              &nbsp;
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div> 
+            <div class="testimonial-text inner-box">
+              "What truly sets [Boutique Name] apart is the impeccable customer service. Any questions I had were promptly addressed, and the level of care and attention to detail was exceptional.."
+            </div>
+          </div>
+        </div>
+        <div class="box1">
+          <div class="customer">
+            <div class="customer-info inner-box">
+              <div class="photo-container">
+                <img src="./images/customer1.png" alt="customer-photo">
+              </div>
+              <span>Susana Alberta</span> 
+              <span class="customer-description">09-07-2023 19:22</span>
+              <i class="fa fa-vk" aria-hidden="true"></i>
+              &nbsp;
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div> 
+            <div class="testimonial-text inner-box">
+              "I recently had the pleasure of ordering flowers from [Boutique Name] , and I couldn't be more impressed with the experience! Navigating the website was a breeze, and I found exactly what I was looking for within minutes."
+            </div>
+          </div>
+          <div class="customer">
+            <div class="customer-info inner-box">
+              <div class="photo-container">
+                <img src="./images/customer2.png" alt="customer-photo">
+              </div>
+              <span>Janneth Carol</span> 
+              <span class="customer-description">10-07-2023 10:25</span>
+              <i class="fa fa-vk" aria-hidden="true"></i>
+              &nbsp;
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div> 
+            <div class="testimonial-text inner-box">
+              "What truly sets [Boutique Name] apart is the impeccable customer service. Any questions I had were promptly addressed, and the level of care and attention to detail was exceptional.."
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+      <div class="pagination">
+          <div class="ball1 ball" id="4"></div>
+          <div class="ball2 ball"></div>
+          <div class="ball3 ball"></div>
+          <div class="ball4 ball"></div>
+          <div class="ball5 ball"></div>
+        </div>
+    </section>
+
+  <!-- our team/contact us section -->
+  <section class="section6">
+    
+      <div class="wrapper">
+        <div class="divtittle">
+          <p class="title3">our team</p>
+          
+        </div>
+          <div class="team">
+            <div class="team-info"><img src="images/amine.jpg" alt="">
+              <p class="team-name">
+                Mohamed Amine bhouri
+              </p>
+              <p class="position">
+                Financial Management
+              </p>
+              <div class="socials">
+                <img src="images/twitter.png" alt="">
+                <img src="images/facebook.png" alt="">
+                <img src="images/google-plus.png" alt="">
+                <img src="images/logotype-linkedin.png" alt="">
+              </div>
+            </div>
+            <div class="team-info"><img src="images/adem.jpg" alt="">
+            <p class="team-name">
+              Adem Fathali
+            </p>
+            <p class="position">
+              Business Analyst
+            </p>
+            <div class="socials">
+              <img src="images/twitter.png" alt="">
+              <img src="images/facebook.png" alt="">
+              <img src="images/google-plus.png" alt="">
+              <img src="images/logotype-linkedin.png" alt="">
+            </div>
+            </div>
+            <div class="team-info"><img src="images/team-2.jpg" alt="">
+              <p class="team-name">
+                Nour Lefi
+              </p>
+              <p class="position">
+                Marketing Manager
+              </p>
+              <div class="socials">
+                <img src="images/twitter.png" alt="">
+                <img src="images/facebook.png" alt="">
+                <img src="images/google-plus.png" alt="">
+                <img src="images/logotype-linkedin.png" alt="">
+              </div>
+            </div>
+            <div class="team-info"><img src="images/team-1.jpg" alt="">
+              <p class="team-name">
+                Ghassen Dhouib
+              </p>
+              <p class="position">
+                CEO
+              </p>
+              <div class="socials">
+                <img src="images/twitter.png" alt="">
+                <img src="images/facebook.png" alt="">
+                <img src="images/google-plus.png" alt="">
+                <img src="images/logotype-linkedin.png" alt="">
+              </div>
+            </div>
+            
+          
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="divtittle">
+            <p class="title4" >Contact Us</p>
+          </div>  
+          <form>
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      
+  </section>
+    <!-- footer section  -->  
+    <footer>
+     
+      <div class="footer_section">
+        <div class="container">
+           <div class="location_main">
+              <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-map-marker" ></i></span> Location</a></div>
+              <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-phone" ></i></span> Call +216 71-235-095</a></div>
+              <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-envelope" ></i></span>BoutiqueName@gmail.com</a></div>
+           </div>
+           <div class="footer_section_2">
+              <div class="row">
+                 <div class="zone">
+                    <h3 class="footer_text">About Us</h3>
+                    <p class="lorem_text">With a commitment to quality and creativity, we source the freshest blooms from trusted local growers and artisans, ensuring that each arrangement is a vibrant celebration of nature's beauty. Whether you're marking a special occasion, sending a thoughtful gesture, or simply indulging in a bit of floral luxury for yourself, our dedicated team is here to exceed your expectations.</p>
+                 </div>
+                 <div class="zone">
+                    <h3 class="footer_text">Services </h3>
+                    <p class="lorem_text">At [Your Flower Shop Name], our dedicated team is always at your service, ready to assist you with all your floral needs. Whether you have questions about our products, need help selecting the perfect arrangement, or require assistance with your order, our knowledgeable and friendly staff are here to help.</p>
+                 </div>
+                 <div class="zone">
+                    <h3 class="footer_text">Subscribe</h3>
+                    <div class="form-group">
+                       <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
+                       <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                    </div>
+                    <div class="social_icon">
+                       <ul>
+                          <li><a href="#"><div class="fa fa-facebook" ></div></a></li>
+                          <li><a href="#"><div class="fa fa-twitter" ></div></a></li>
+                          <li><a href="#"><div class="fa fa-linkedin" ></div></a></li>
+                          <li><a href="#"><div class="fa fa-instagram" ></div></a></li>
+                          <li><a href="#"><div class="fa fa-youtube-play"></div></a></li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- copyright section start -->
+     <div class="copyright_section">
+        <div class="container">
+           <div class="row">
+              <div class="zone2">
+                 <p class="copyright_text">2024 All Rights Reserved. Design by <a href="#4">Our Team</a></p>
+              </div>
+           </div>
+        </div>
+     
+    </footer>
+  </main>
+</body>
+
+
+<script>
+    let scrollContainer = document.querySelector(".slideshow");
+    let backbtn = document.getElementById("backbtn");
+    let nextbtn = document.getElementById("nextbtn");
+  
+ 
+    nextbtn.addEventListener("click", ()=>{
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft += 2000;
+    });
+  
+    backbtn.addEventListener("click", ()=>{
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft -= 2000;
+    });
+</script>
+<script>
+    let testimonialsContainer = document.querySelector(".testimonials-box");
+    let testimonialsBackBtn = document.getElementById("BackBtn2");
+    let testimonialsNextBtn = document.getElementById("NextBtn2");
+  
+
+  
+    testimonialsNextBtn.addEventListener("click", ()=>{
+      testimonialsContainer.style.scrollBehavior = "smooth";
+      testimonialsContainer.scrollLeft += 2500;
+    });
+  
+    testimonialsBackBtn.addEventListener("click", ()=>{
+      testimonialsContainer.style.scrollBehavior = "smooth";
+      testimonialsContainer.scrollLeft -= 2500;
+    });
+</script>
+
+
+
+</html>
