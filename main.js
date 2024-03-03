@@ -32,14 +32,19 @@
     });
 
 
-function changeClass2(element) {
-var heartIcons = document.querySelectorAll('.product i.fa-heart');
-for (var i = 0; i < heartIcons.length; i++) {
-    heartIcons[i].classList.remove('fa-heart');
-    heartIcons[i].classList.add('fa-heart-o');
-}
-element.classList.remove('fa-heart-o');
-element.classList.add('fa-heart');
-}
-
-  
+    function changeClass2(element) {
+        var isHeartFilled = element.classList.contains('fa-heart');
+        var allHeartIcons = document.querySelectorAll('.offers i.fa-heart');
+        
+        if (isHeartFilled) {
+          element.classList.remove('fa-heart');
+          element.classList.add('fa-heart-o');
+        } else {
+          for (var i = 0; i < allHeartIcons.length; i++) {
+            allHeartIcons[i].classList.remove('fa-heart');
+            allHeartIcons[i].classList.add('fa-heart-o');
+          }
+          element.classList.remove('fa-heart-o');
+          element.classList.add('fa-heart');
+        }
+      }
