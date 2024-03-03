@@ -1,0 +1,384 @@
+/* rules for the body */
+
+body {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 0;
+  height: 2000px;
+}
+  
+.title {
+  font-family: 'Times New Roman', Times, serif;
+}
+  
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+  
+a:hover {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px magenta;
+}
+  
+h1,
+h2,
+h3 {
+  font-weight: 100;
+}
+  
+/* rules for the main container */
+  
+.main-container {
+  position: relative;
+}
+  
+/* rules for the catalogue page header */
+  
+.header {
+  background-color: #55bf00;
+  color: #ff8965;
+  padding: 20px ;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+    
+}
+  
+.header-left {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+.header-left {
+  flex: 1;
+  justify-content: left;
+  margin-left: 30px;
+  
+}
+.header-center{
+  flex: 1;
+  margin-right: 200px;
+}
+.search-bar{
+  width: 100%;
+  max-width: 400px;
+  height: 30px;
+  background: rgba(12, 2, 2, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  padding: 10px 20px;
+
+}
+.search-bar input{
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 22px 20px;
+  font-size: 20px;
+  color: #cac7ff; 
+}
+
+::placeholder{
+  color: rgba(0, 0, 0, 0.603);
+}
+
+.search-bar button img{
+  width: 25px;
+
+}
+
+.search-bar button{
+  border: 0;
+  border-radius: 50%;
+  width: 38px;
+  height: 35px;
+  background: #8c98db ;
+  cursor: pointer;
+}
+
+
+
+.header-right {
+  margin-right: 30px;
+}
+.button {
+  background-color: #ff8965;
+  border: none;
+  color: rgb(253, 249, 249);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+
+  .flowers-catalogue {
+    position: relative;
+    color: black;
+    background-color: white;
+    width: 100%;
+  }
+  
+  .page-header {
+    display: block;
+    position: relative;
+    top: 1.5rem;
+    width: 85%;
+    font-size: 1.8rem;
+    margin: 0 auto;
+  }
+/* ----------price slider---------- */
+.slider-container {
+  width: 100%;
+}
+
+  
+  input[type="range"] {
+    width: 80%;
+    height: 5px;
+    margin-left: 40px;
+    background: #d3d3d3;
+    outline: none;
+    
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4caf50;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  #priceValue {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .funnel {
+    display: none;
+    position: relative;
+    text-align: center;
+    top: 2rem;
+    width: 85%;
+    font-size: 1.2rem;
+    padding: 0.7rem 0;
+    margin: 0 auto;
+    color: #55bf00;
+    border: 1px solid #55bf00;
+    border-radius: 0.3rem;
+  }
+  
+  .main-box {
+    display: flex;
+    align-items: start;
+    position: relative;
+    top: 3rem;
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  /* rules for the filter box */
+  
+  .filter-box {
+    flex: 1;
+    background-color: #fcfcfc;
+    border: 1px solid whitesmoke;
+    margin-right: 2rem;
+    border-radius: 0.3rem;
+  }
+  
+  .filter-box span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem;
+  }
+  
+
+  .price-slider-frame {
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+  
+  .price-slider-frame img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .price-limits {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.3rem 1rem;
+  }
+  
+  .limit {
+    width: 5rem;
+    font-size: 1rem;
+    padding: 0.3rem;
+    margin: 0;
+    border: 2px solid #55bf00;
+    border-radius: 0.4rem;
+  }
+  
+  .color-picker {
+    display: flex;
+    justify-content: start;
+    margin: 0.3rem 1rem;
+  }
+  
+  .color-container {
+    color: white;
+    width: 2.3rem;
+  }
+  
+  .color {
+    display: inline-block;
+    width: 1rem;
+    font-size: 1rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+  
+  .color1 { background: #bd4855; }
+  .color2 { background: #d49315; }
+  .color3 { background: #a833b9; }
+  .color4 { background: #df5fa7; }
+  .color5 { background: #5faddf; }
+  
+  .event,
+  .for-whom {
+    display: inline-block;
+    width: 80%;
+    margin: 0.2rem 1rem;
+  }
+  
+  .event span,
+  .for-whom span {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 100;
+    margin: 0 0 0 0.8rem;
+  }
+  
+  .checkmark {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.1rem;
+    color: white;
+    border: 1px solid #55bf00;
+    border-radius: 0.1rem;
+    cursor: pointer;
+  }
+  
+  .event1 .checkmark,
+  .for-whom1 .checkmark {
+    color: black;
+  }
+  
+  .show-btn {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    background-color: #d8055a;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 2rem;
+    margin: 1.5rem 1rem 1rem 1rem;
+    cursor: pointer;
+  }
+  
+  /* rules for the results box */
+  
+  .results-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 3;
+  }
+  
+  .result {
+    background-color: #fcfcfc;
+    border: 1px solid whitesmoke;
+    width: 31%;
+    border-radius: 0.3rem;
+  }
+  
+  .result1 { margin: 0 0.25rem 0.5rem 0.25rem; }
+  .result2 { margin: 0 0.25rem 0.5rem 0.25rem; }
+  .result3 { margin: 0 0.25rem 0.5rem 0.25rem; }
+  .result4 {margin: 0 0.25rem 0.5rem 0.25rem; }
+  .result5 {margin: 0 0.25rem 0.5rem 0.25rem; }
+  .result6 { margin: 0 0.25rem 0.5rem 0.25rem;}
+  
+  .result i {
+    display: inline-block;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+    color: #d8055a;
+    cursor: pointer;
+  }
+  
+  .img-frame {
+    position: relative;
+    width: 55%;
+    margin: 0 auto;
+  }
+  
+  .result img {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .quantity {
+    margin: 0.3rem 1rem 0.3rem 1rem;
+  }
+  
+  .result label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7vw 0.3rem 0.5vw;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .result input[type="radio"] {
+    display: none;
+  }
+  
+  .result input[type="radio"]:checked + label {
+    border: 2px solid #55bf00;
+  }
+  
+  .result span {
+    display: block;
+    font-weight: 600;
+    margin: 0.4rem 1rem 0.6rem 1rem;
+  }
+  
+
+  .price-span i {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  
+  
+
+  
