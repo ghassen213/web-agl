@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flowers shop - catalogue</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="catalogue.css">
+</head>
+<body>
+<main class="main-container">
+  <header>
+    <div class="header">
+      <div class="header-left">
+        <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
+        <span>Boutique Name</span>
+      </div>
+      <div class="header-center">
+        <form action="" class="search-bar">
+          <input type="text" placeholder="search anything" name="q">
+          <button type="submit"><img src="images/search.png"></button>
+        </form>
+      </div>
+      <div class="header-right">
+        <a id="signupButton" href="signUp.html" class="button">
+          Customize</a>
+      </div>
+    </div>
+  </header>
+
+<div class="flowers-catalogue">
+  <h1 class="page-header title">Flowers Catalogue</h1>
+  <div class="funnel">
+    <span><i class="fa fa-filter" aria-hidden="true"></i> Filters</span>
+  </div>
+  <div class="main-box">
+    <div class="filter-box">
+      <div class="slider-container">
+        <div class="spacer"></div>
+      <span>Price</span>
+        <input type="range" id="priceSlider" min="20" max="150" value="20">
+        <span id="priceValue">$20</span>
+      </div>
+      <div class="spacer"></div>
+      <span>Color</span>
+      <div class="color-picker">
+        <div class="color-container">
+          <div class="color color1" id="1" onclick="selectColor(this)"> &nbsp;</div>
+        </div>
+        <div class="color-container">
+          <div class="color color2" id="2" onclick="selectColor(this)"> &nbsp;</div>
+        </div>
+        <div class="color-container">
+          <div class="color color3" id="3" onclick="selectColor(this)"> &nbsp;</div>
+        </div>
+        <div class="color-container">
+          <div class="color color4" id="4" onclick="selectColor(this)">&nbsp;</div>
+        </div>
+        <div class="color-container">
+          <div class="color color5" id="5" onclick="selectColor(this)">&nbsp;</div>
+        </div>
+      </div>
+      
+      <div class="section1">
+        <div class="spacer"></div>
+          <span>Event</span>
+          <div class="for-whom">
+            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <span >Anniversary</span>
+          </div>
+          <div class="for-whom">
+            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <span >Congratulations</span>
+          </div>
+          <div class="for-whom">
+            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <span >Birthday</span>
+          </div>
+          <div class="for-whom ">
+            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <span >valentin's Day</span>
+          </div>
+          <div class="for-whom">
+            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <span >Apologize</span>
+          </div>
+          
+        </div>
+        <div class="section2">
+          <div class="spacer"></div>
+            <span>For Whom</span>
+            <div class="for-whom">
+              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
+              <span >Spouse</span> 
+            </div>
+            <div class="for-whom">
+              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
+              <span >Girlfriend</span>
+            </div>
+            <div class="for-whom">
+              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
+              <span >Mother</span>
+            </div>
+            <div class="for-whom ">
+              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
+              <span >Daughter</span>
+            </div>
+            <div class="for-whom">
+              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
+              <span >Friend</span>
+            </div>
+        </div>
+      
+      <div class="show-btn">Show results</div>
+    </div>
+    <div class="results-box">
+      <div class="result1 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/trjar.png" alt="Turkish Rose">
+          </a>
+        </div>
+        <span>Turkish Rose</span>
+        
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result2 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/rfjar.png" alt="Rose Flower">
+          </a>
+        </div>
+        <span>Rose Flower</span>
+       
+          
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result3 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/acjar.png" alt="Assorted Colors">
+          </a>
+        </div>
+        <span>Assorted Colors</span>
+        
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result4 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/04jar.png" alt="Daisy Flowers">
+          </a>
+        </div>
+        <span>Daisy Flowers</span>
+        <form class="quantity">
+          <input type="radio" id="q10" name="quantity" checked><label for="q10">9 unt.</label>
+          <input type="radio" id="q11" name="quantity"><label for="q11">15 unt.</label>
+          <input type="radio" id="q12" name="quantity"><label for="q12">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result5 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/05jar.png" alt="Alstroemeria">
+          </a>
+        </div>
+        <span>Alstroemeria</span>
+        <form class="quantity">
+          <input type="radio" id="q13" name="quantity" checked><label for="q13">9 unt.</label>
+          <input type="radio" id="q14" name="quantity"><label for="q14">15 unt.</label>
+          <input type="radio" id="q15" name="quantity"><label for="q15">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result6 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/06jar.png" alt="Peonies and Lilies">
+          </a>
+        </div>
+        <span>Peonies and Lilies</span>
+        <form class="quantity">
+          <input type="radio" id="q16" name="quantity" checked><label for="q16">9 unt.</label>
+          <input type="radio" id="q17" name="quantity"><label for="q17">15 unt.</label>
+          <input type="radio" id="q18" name="quantity"><label for="q18">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result1 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/trjar.png" alt="Turkish Rose">
+          </a>
+        </div>
+        <span>Turkish Rose</span>
+        <form class="quantity">
+          <input type="radio" id="q1" name="quantity1" checked><label for="q1">9 unt.</label>
+          <input type="radio" id="q2" name="quantity1"><label for="q2">15 unt.</label>
+          <input type="radio" id="q3" name="quantity1"><label for="q3">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result2 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/rfjar.png" alt="Rose Flower">
+          </a>
+        </div>
+        <span>Rose Flower</span>
+        <form class="quantity">
+          <input type="radio" id="q4" name="quantity2" checked><label for="q4">9 unt.</label>
+          <input type="radio" id="q5" name="quantity2"><label for="q5">15 unt.</label>
+          <input type="radio" id="q6" name="quantity2"><label for="q6">21 unt.</label>
+        </form>     
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result3 result" >
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/acjar.png" alt="Assorted Colors">
+          </a>
+        </div>
+        <span>Assorted Colors</span>
+        <form class="quantity">
+          <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
+          <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
+          <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result4 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/04jar.png" alt="Daisy Flowers">
+          </a>
+        </div>
+        <span>Daisy Flowers</span>
+        <form class="quantity">
+          <input type="radio" id="q10" name="quantity" checked><label for="q10">9 unt.</label>
+          <input type="radio" id="q11" name="quantity"><label for="q11">15 unt.</label>
+          <input type="radio" id="q12" name="quantity"><label for="q12">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result5 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/05jar.png" alt="Alstroemeria">
+          </a>
+        </div>
+        <span>Alstroemeria</span>
+        <form class="quantity">
+          <input type="radio" id="q13" name="quantity" checked><label for="q13">9 unt.</label>
+          <input type="radio" id="q14" name="quantity"><label for="q14">15 unt.</label>
+          <input type="radio" id="q15" name="quantity"><label for="q15">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+      <div class="result6 result">
+        <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+        <div class="img-frame">
+          <a href="product.html">
+            <img src="./images/06jar.png" alt="Peonies and Lilies">
+          </a>
+        </div>
+        <span>Peonies and Lilies</span>
+        <form class="quantity">
+          <input type="radio" id="q16" name="quantity" checked><label for="q16">9 unt.</label>
+          <input type="radio" id="q17" name="quantity"><label for="q17">15 unt.</label>
+          <input type="radio" id="q18" name="quantity"><label for="q18">21 unt.</label>
+        </form>
+        <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+      </div>
+    </div>
+  </div>
+</section>
+</main> 
+</body>
+<script src="catalogue.js"></script>
+</html>
