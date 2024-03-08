@@ -6,8 +6,10 @@
 
   <title>Flowers shop</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
@@ -19,21 +21,89 @@
       <!-- Header -->
 
       <header>
-        <div class="header">
+        <div class="header-nav">
           <div class="header-left">
             <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
             <span>Boutique Name</span>
           </div>
           <div class="header-center">
               <a href="#1" >Offers</a>
+                <nav class="nav container">
+       
+                  <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                      <li class="dropdown__item">
+                        <div class="nav__link">
+                          Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+       
+                        <ul class="dropdown__menu">
+                          <li>
+                            <a href="" class="dropdown__link">
+                              <i class="ri-cake-2-line"></i> Anniversary
+                            </a>                          
+                          </li>
+       
+                          <li>
+                            <a href="#" class="dropdown__link">
+                              <i class="fa fa-heart-o"></i> wedding
+                            </a>
+                          </li>
+       
+                           <li>
+                            <a href="#" class="dropdown__link">
+                              <i class="fa fa-heart"></i> valentin
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
               <a href="#2">Galery</a>
               <a href="#3">Products</a>
               <a href="#4">Contact us</a>
-          </div>
+          </div>  
+          
           <div class="header-right">
+            <nav class="nav container">
+       
+              <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                  <li class="dropdown__item">
+                    <div class="nav__link">
+                       <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                    </div>
+   
+                    <ul class="dropdown__menu">
+                      <li>
+                        <a href="profil.html" class="dropdown__link">
+                          <i class="ri-user-line"></i> Profile
+                        </a>                          
+                      </li>
+   
+                      <li>
+                        <a href="#5" class="dropdown__link">
+                          <i class="fa fa-gear"></i> Help & Support
+                        </a>
+                      </li>
+   
+                       <li>
+                        <a href="index.html" class="dropdown__link" onclick="reset()">
+                          <i class="ri-shut-down-line" ></i> Log out   
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
             <a id="signupButton" href="signUp.html" class="button">Sign Up</a>
             <a id="loginButton" href="signIn.html" class="button">Login</a>
+            
+            
           </div>
+          
         </div>
       </header>
 
@@ -412,8 +482,8 @@
     <!-- footer section  -->  
     <footer>
      
-      <div class="footer_section">
-        <div class="container">
+      <div class="footer_section" id="5">
+        <div class="container3">
            <div class="location_main">
               <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-map-marker" ></i></span> Location</a></div>
               <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-phone" ></i></span> Call +216 71-235-095</a></div>
@@ -451,7 +521,7 @@
      </div>
      <!-- copyright section start -->
      <div class="copyright_section">
-        <div class="container">
+        <div class="container3">
            <div class="row">
               <div class="zone2">
                  <p class="copyright_text">2024 All Rights Reserved. Design by <a href="#4">Our Team</a></p>
