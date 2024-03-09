@@ -7,9 +7,13 @@ formData.addEventListener("submit", function(e){
     e.preventDefault();
 let mail = document.getElementById("email").value
 let name = document.getElementById("fname").value + " " +document.getElementById("lname").value;
+let sex = document.getElementById("sex").value
+let bd = document.getElementById("bd").value
 let password =document.getElementById("password").value;
 let userCrd={
                 name : name,
+                sex : sex,
+                bd : bd,
                 email: mail,
                 password: password
             }
