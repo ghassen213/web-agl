@@ -64,7 +64,7 @@ body{
 #inputdetail>div{
     width: 47%;
 }
-#inputdetail input,#email,#password{
+#inputdetail input,#email,#password,#bd,#sex {
     width: 95%;
     line-height: 30px;
     border: none;
