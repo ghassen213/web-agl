@@ -1045,7 +1045,6 @@ textarea#comment::placeholder {
 
 
 
-/*=============== GOOGLE FONTS ===============*/
 
 
 /*=============== VARIABLES CSS ===============*/
@@ -1107,7 +1106,7 @@ font-weight: initial;
 transition: transform .4s;
 }
 
-.dropdown__link {
+.dropdown__link , .dropdown__link2 {
 padding: 1.25rem 1.25rem 1.25rem 2.5rem;
 color: var(--white-color);
 background-color: var(--black-color-light);
@@ -1118,12 +1117,12 @@ font-weight: var(--font-semi-bold);
 transition: background-color .3s;
 }
 
-.dropdown__link i {
+.dropdown__link i ,.dropdown__link2 i {
 font-size: 1.25rem;
 font-weight: initial;
 }
 
-.dropdown__link:hover {
+.dropdown__link:hover , .dropdown__link2:hover{
 background-color: rgb(255, 255, 255);
 }
 
@@ -1183,7 +1182,7 @@ transform: rotate(180deg);
   transition: opacity .3s, top .3s;
 }
 
-.dropdown__link ,.header-right .dropdown__link  {
+.dropdown__link ,.dropdown__link2 ,.header-right .dropdown__link  {
   padding-inline: 1rem 3.5rem;
   font-size: 20px;
 }
