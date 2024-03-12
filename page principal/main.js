@@ -58,16 +58,21 @@
     let navMenu = document.querySelector(".header-right .nav");
 
     let test = JSON.parse(sessionStorage.getItem("test"));
-  
-    if (test.value == "yes") {
-      signUpButton.style.display = "none";
-      loginButton.style.display = "none";
-      navMenu.style.opacity = "1";
-      let navLink = document.querySelector(".header-right .nav__link");
-      navLink.innerHTML = `<i class="fa fa-user"></i>${clname.name} <i class="ri-arrow-down-s-line dropdown__arrow"></i>`;
+    
 
-      
+    if (test){
+      if (test.value == "yes") {
+        signUpButton.style.display = "none";
+        loginButton.style.display = "none";
+        navMenu.style.opacity = "1";
+        let navLink = document.querySelector(".header-right .nav__link");
+        navLink.innerHTML = `<i class="fa fa-user"></i>${clname.name} <i class="ri-arrow-down-s-line dropdown__arrow"></i>`;
+  
+        
+      }
+
     }
+    
 
 function reset(){
     sessionStorage.removeItem("test");
@@ -75,4 +80,25 @@ function reset(){
 
 
 
-
+  document.addEventListener("DOMContentLoaded", function() {
+    const dropdownLinks = document.querySelectorAll('.dropdown__link');
+    
+    dropdownLinks.forEach(function(link, index) {
+        link.addEventListener('click', function(event) {
+  
+            const nom = link.textContent.trim();
+            const position = index + 1;
+            sessionStorage.setItem('nom', nom);
+            sessionStorage.setItem('position', position);
+            console.log("nom=" + nom + " position=" + position);
+            
+            // Supprimer les éléments précédemment stockés
+            sessionStorage.removeItem('nom');
+            sessionStorage.removeItem('position');
+            
+            // Ajouter les nouveaux éléments
+            sessionStorage.setItem('nom', nom);
+            sessionStorage.setItem('position', position);
+        });
+    });
+});
