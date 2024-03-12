@@ -48,3 +48,59 @@ function selectColor(element) {
  
 
 }
+
+var nom = sessionStorage.getItem("nom");
+var position = sessionStorage.getItem("position");
+const tab = document.querySelectorAll('.results-box');
+console.log(position);
+console.log(nom);
+
+function tabs(panelIndex) {
+  tab.forEach(function (node) {
+      node.style.display = "none";
+  });
+  tab[panelIndex].style.display = "flex";
+}
+if (nom && position) {
+  tabs(position);
+  const select = document.querySelector(".select"); // Using querySelector to select the first element with the class "select"
+  if (select) {
+      const spanElement = select.querySelector("span"); // Using querySelector to find the span element inside the select element
+      if (spanElement) {
+          spanElement.innerHTML = nom;
+      }
+  }
+} else {
+  tabs(0);
+}
+
+
+
+
+
+
+
+
+
+const select = document.querySelector(".select");
+const options_list = document.querySelector(".options-list");
+const options = document.querySelectorAll(".option");
+
+//show & hide options list
+select.addEventListener("click", () => {
+  options_list.classList.toggle("active");
+
+});
+
+//select option
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    options.forEach((option) => {option.classList.remove('selected')});
+    select.querySelector("span").innerHTML = option.innerHTML;
+    option.classList.add("selected");
+    options_list.classList.toggle("active");
+   
+  });
+});
+
+
