@@ -196,7 +196,7 @@ h3 {
 
 .section2 {
   position: relative;
-  width: 100%;
+  width: 95%;
   height: 100%;
   margin: 0 auto;
 }
@@ -238,7 +238,7 @@ h3 {
 .offers {
   display: flex;
   top: 10vh;
-  width: 100%;
+  width: 95%;
   overflow: hidden;
   margin-bottom: 2rem;
 }
@@ -392,8 +392,9 @@ h3 {
 }
 
 .slideshow div img {
-  width: 100%; 
+  width: 90%; 
   transition: transform 0.5s;
+  border-radius: 10%;
  
 }
 .slideshow div img:hover{
@@ -471,7 +472,7 @@ h3 {
 .samples-box {
   display: flex;
   flex-wrap: wrap;
-  width: 85%;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -555,7 +556,7 @@ h3 {
   background-color: #d8055a;
   border-radius: 2rem;
   padding: 0.7rem ;
-  margin-left: 900px;
+  margin-left: 850px;
   margin-bottom: 40px;
   margin-top: 40px;
   cursor: pointer;
