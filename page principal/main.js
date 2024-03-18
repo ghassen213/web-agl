@@ -6,7 +6,7 @@
  
     nextbtn.addEventListener("click", ()=>{
       scrollContainer.style.scrollBehavior = "smooth";
-      scrollContainer.scrollLeft += 2000;
+      scrollContainer.scrollLeft += 1900;
     });
   
     backbtn.addEventListener("click", ()=>{
@@ -57,11 +57,11 @@
     let loginButton = document.getElementById("loginButton");
     let navMenu = document.querySelector(".header-right .nav");
 
-    let test = JSON.parse(sessionStorage.getItem("test"));
+    let logedin = JSON.parse(sessionStorage.getItem("logedin"));
     
 
-    if (test){
-      if (test.value == "yes") {
+    if (logedin){
+      if (logedin.value == "yes") {
         signUpButton.style.display = "none";
         loginButton.style.display = "none";
         navMenu.style.opacity = "1";
@@ -75,7 +75,7 @@
     
 
 function reset(){
-    sessionStorage.removeItem("test");
+    sessionStorage.removeItem("logedin");
   }
 
 
