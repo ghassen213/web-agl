@@ -34,25 +34,30 @@
                     <ul class="nav__list">
                       <li class="dropdown__item">
                         <div class="nav__link">
-                          Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                          Category <i class="ri-arrow-down-s-line dropdown__arrow"></i>
                         </div>
        
                         <ul class="dropdown__menu">
                           <li>
-                            <a href="catalogue.html" class="dropdown__link">
+                            <a href="catalogue.php" class="dropdown__link">
                               <i class="ri-cake-2-line"></i> Anniversary
                             </a>                          
                           </li>
        
                           <li>
-                            <a href="catalogue.html" class="dropdown__link">
+                            <a href="catalogue.php" class="dropdown__link">
                               <i class="fa fa-heart-o"></i> wedding
                             </a>
                           </li>
        
                            <li>
-                            <a href="catalogue.html" class="dropdown__link">
+                            <a href="catalogue.php" class="dropdown__link">
                               <i class="fa fa-heart"></i> valentin
+                            </a>
+                          </li>
+                          <li>
+                            <a href="" class="dropdown__link">
+                              <i class="fa fa-countdown"></i> More.Coming.soon...
                             </a>
                           </li>
                         </ul>
@@ -77,7 +82,7 @@
    
                     <ul class="dropdown__menu">
                       <li>
-                        <a href="profil.html" class="dropdown__link2">
+                        <a href="profil.php" class="dropdown__link2">
                           <i class="ri-user-line"></i> profil
                         </a>                          
                       </li>
@@ -89,7 +94,7 @@
                       </li>
    
                        <li>
-                        <a href="index.html" class="dropdown__link2" onclick="reset()">
+                        <a href="index.php" class="dropdown__link2" onclick="reset()">
                           <i class="ri-shut-down-line" ></i> Log out   
                         </a>
                       </li>
@@ -98,8 +103,8 @@
                 </ul>
               </div>
             </nav>
-            <a id="signupButton" href="signUp.html" class="button">Sign Up</a>
-            <a id="loginButton" href="signIn.html" class="button">Login</a>
+            <a id="signupButton" href="signUp.php" class="button">Sign Up</a>
+            <a id="loginButton" href="signIn.php" class="button">Login</a>
             
             
           </div>
@@ -117,7 +122,7 @@
           <a href="catalogue.html">ORDER NOW</a>
         </div>
         <div>
-          <span class="phone">+216 71-235-095</span>
+          <span class="phone" id="1">+216 71-235-095</span>
         </div>
       </div>
       
@@ -125,10 +130,10 @@
 
     <!--  best offers  section-->
 
-    <section class="section2">
+    <section class="section2" >
       <div class="wrapper">
         <div class="divtittle">
-          <h3 class="title1" id="1">Best offers</h3>
+          <h3 class="title1" >Best offers</h3>
         
         </div>
         
@@ -167,35 +172,37 @@
                 <div class="discount3">-10%</div>
                 
               </div>
-              <div class="right-offer-img">
-                <img src="./images/assortedcolors.png" alt="Assorted Colors">
+              <div class="right-offer-img" >
+                <img src="./images/assortedcolors.png" alt="Assorted Colors" >
               </div>
             </div>
           </div>
+        </div>
+        <div class="pagination" id="2">
         </div>
       </div>
     </section>
 
     <!-- Gallery section -->
-
-    <section id="crafts-gallery" class="section3">
-      <nav class="gallery-nav-bar" id="2">
+    
+    <section id="crafts-gallery" class="section3" >
+      <nav class="gallery-nav-bar"  >
         <h3 class="title" >Our Gallery</h3>
-        <div class="gallery-arrows">
+        <div class="gallery-arrows" >
             <div class="fa fa-angle-left" id="backbtn"></div>
             <div class="fa fa-angle-right" id="nextbtn"></div>
         </div>
       </nav>
       <div class="slideshow">
         <div>
-          <span><img src="./images/bridalbq1.png" alt="gallery-slide"></span>
-          <span><img src="./images/bridalbq2.png" alt="gallery-slide"></span>
-          <span><img src="./images/bridalbq3.png" alt="gallery-slide"></span> 
+          <span><img src="./images/gallery/bridalbq1.png" alt="gallery-slide"></span>
+          <span><img src="./images/gallery/flower4.png" alt="gallery-slide"></span>
+          <span><img src="./images/gallery/bridalbq3.png" alt="gallery-slide"></span> 
         </div>
         <div>
-          <span><img src="./images/bridalbq2.png" alt="gallery-slide"></span>
-          <span><img src="./images/bridalbq3.png" alt="gallery-slide"></span> 
-          <span><img src="./images/bridalbq1.png" alt="gallery-slide"></span>
+          <span><img src="./images/gallery/flower5.png" alt="gallery-slide"></span>
+          <span><img src="./images/gallery/bridalbq2.png" alt="gallery-slide"></span>
+          <span><img src="./images/gallery/bridalbq3.png" alt="gallery-slide"></span> 
         </div>
       </div>
       <div class="pagination">
@@ -203,7 +210,7 @@
         <div class="ball2 ball"></div>
         <div class="ball3 ball"></div>
         <div class="ball4 ball"></div>
-        <div class="ball5 ball"></div>
+        <div class="ball5 ball" id="3"></div>
       </div>
     </section>
   
@@ -211,101 +218,45 @@
     <section class="section4">
       <div class="wrapper">
         <div class="divtittle">
-          <h3 class="title2" id="3">Our Products</h3>
+          <h3 class="title2" >Our Products</h3>
         </div>
-        <div class="samples-box">
-          <div class="product1 product">
-            <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
-            <div class="img-frame">
-              <a href="product.html">
-                <img src="./images/trjar.png" alt="Turkish Rose">
-              </a>
-            </div>
-            <span>Flower 1</span>
-            <form class="quantity">
-              <input type="radio" id="q1" name="quantity1" checked><label for="q1">9 unt.</label>
-              <input type="radio" id="q2" name="quantity1"><label for="q2">15 unt.</label>
-              <input type="radio" id="q3" name="quantity1"><label for="q3">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-          </div>
-          <div class="product2 product">
-            <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
-            <div class="img-frame">
-              <a href="product.html">
-                <img src="./images/rfjar.png" alt="Rose Flower">
-              </a>
-            </div>
-            <span>Flower 2</span>
-            <form class="quantity">
-              <input type="radio" id="q4" name="quantity2" checked><label for="q4">9 unt.</label>
-              <input type="radio" id="q5" name="quantity2"><label for="q5">15 unt.</label>
-              <input type="radio" id="q6" name="quantity2"><label for="q6">21 unt.</label>
-            </form>     
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-          </div>
-          <div class="product3 product">
-            <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
-            <div class="img-frame">
-              <a href="product.html">
-                <img src="./images/acjar.png" alt="Assorted Colors">
-              </a>
-            </div>
-            <span>Flower 3</span>
-            <form class="quantity">
-              <input type="radio" id="q7" name="quantity" checked><label for="q7">9 unt.</label>
-              <input type="radio" id="q8" name="quantity"><label for="q8">15 unt.</label>
-              <input type="radio" id="q9" name="quantity"><label for="q9">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" ></i></a></span>
-          </div>
-          <div class="product4 product">
-            <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
-            <div class="img-frame">
-              <a href="product.html">
-                <img src="./images/trjar.png" alt="Turkish Rose">
-              </a>
-            </div>
-            <span>Flower 4</span>
-            <form class="quantity">
-              <input type="radio" id="q10" name="quantity" checked><label for="q10">9 unt.</label>
-              <input type="radio" id="q11" name="quantity"><label for="q11">15 unt.</label>
-              <input type="radio" id="q12" name="quantity"><label for="q12">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" ></i></a></span>
-          </div>
-          <div class="product5 product">
-            <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
-            <div class="img-frame">
-              <a href="product.html">
-                <img src="./images/rfjar.png" alt="Rose Flower">
-              </a>
-            </div>
-            <span>Flower 5</span>
-            <form class="quantity">
-              <input type="radio" id="q13" name="quantity" checked><label for="q13">9 unt.</label>
-              <input type="radio" id="q14" name="quantity"><label for="q14">15 unt.</label>
-              <input type="radio" id="q15" name="quantity"><label for="q15">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart"></i></a></span>
-          </div>
-          <div class="product6 product">
-            <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
-            <div class="img-frame">
-              <a href="product.html">
-                <img src="./images/acjar.png" alt="Assorted Colors">
-              </a>
-            </div>
-            <span>Flower 6</span>
-            <form class="quantity">
-              <input type="radio" id="q16" name="quantity" checked><label for="q16">9 unt.</label>
-              <input type="radio" id="q17" name="quantity"><label for="q17">15 unt.</label>
-              <input type="radio" id="q18" name="quantity"><label for="q18">21 unt.</label>
-            </form>
-            <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-          </div>
-        </div> 
-        <a href="catalogue.html" class="show-more-btn">Show More</a>
+        <div class="samples-box" id="samples-container"></div>
+            <script>
+              const productsData = [
+                { name: 'Turkish Rose', imgSrc: './images/trjar.png', altText: 'Turkish Rose', price:'$50' },
+                { name: 'Rose Flower', imgSrc: './images/rfjar.png', altText: 'Rose Flower', price:'$49'},
+                { name: 'Assorted Colors', imgSrc: './images/acjar.png', altText: 'Assorted Colors', price:'$45'  },
+                { name: 'Daisy Flowers', imgSrc: './images/04jar.png', altText: 'Daisy Flowers', price:'$39'   },
+                { name: 'Alstroemeria', imgSrc: './images/05jar.png', altText: 'Alstroemeria', price:'$20'  },
+                { name: 'Peonies and Lilies', imgSrc: './images/06jar.png', altText: 'Peonies and Lilies', price:'$30' } 
+              ];
+
+              function generateProductHTML(product, index) {
+                return `
+                  <div class="product product${index + 1}">
+                    <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
+                    <div class="img-frame">
+                      <a href="product.html">
+                        <img src="${product.imgSrc}" alt="${product.altText}">
+                      </a>
+                    </div>
+                    <span>Flower ${index + 1}</span>
+                    <form class="quantity">
+                      <input type="radio" id="q${index * 3 + 1}" name="quantity${index + 1}" checked><label for="q${index * 3 + 1}">9 unt.</label>
+                      <input type="radio" id="q${index * 3 + 2}" name="quantity${index + 1}"><label for="q${index * 3 + 2}">15 unt.</label>
+                      <input type="radio" id="q${index * 3 + 3}" name="quantity${index + 1}"><label for="q${index * 3 + 3}">21 unt.</label>
+                    </form>
+                    <span class="price-span"> ${product.price} <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+                  </div>
+                `;
+              }
+
+              const samplesContainer = document.getElementById('samples-container');
+              productsData.forEach((product, index) => {
+                samplesContainer.innerHTML += generateProductHTML(product, index);
+              });
+          </script>
+        <a href="catalogue.php" class="show-more-btn">Show More</a>
         
       </div>  
     </section>  
