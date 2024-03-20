@@ -48,7 +48,7 @@ $_SESSION["userID"] = $userID; // Store userID in session variable
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutique Name Sign-In</title>
-    <link rel="stylesheet" href="SignUp.css">
+    <link rel="stylesheet" href="SignUp_SignIn.css">
 </head>
 <body>
     <div id="maincontainer">
