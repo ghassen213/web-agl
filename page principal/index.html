@@ -23,8 +23,8 @@
       <header>
         <div class="header-nav">
           <div class="header-left">
-            <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
-            <span>Boutique Name</span>
+            <img  class="rose-logo" src="./images/logo.png" alt="logo">
+            <span>Flora Boutique</span>
           </div>
           <div class="header-center">
               <a href="#1" >Offers</a>
@@ -94,7 +94,7 @@
                       </li>
    
                        <li>
-                        <a href="index.php" class="dropdown__link2" onclick="reset()">
+                        <a href="index.html" class="dropdown__link2" onclick="reset()">
                           <i class="ri-shut-down-line" ></i> Log out   
                         </a>
                       </li>
@@ -116,10 +116,11 @@
 
       <div class="main-img-container"></div>
       <div class="main-text">
+        <img src="images/logo.png"  >
         <h2 class="caption">Welcome To Our Shop</h2>
         <h3 class="sub-caption">we give you everything you want </h3><br>
         <div class="order-btn">
-          <a href="catalogue.html">ORDER NOW</a>
+          <a href="catalogue.php">ORDER NOW</a>
         </div>
         <div>
           <span class="phone" id="1">+216 71-235-095</span>
@@ -141,7 +142,7 @@
           <div class="left-offer offer">
             <div class="left-offer-info">
               <span class="name-price">Turkish Rose</span>
-              <span>$99 <a href="catalogue.html"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a> 
+              <span>$99 <a href="catalogue.php"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a> 
               </span>
               <div class="discount">-50%</div>
             </div>
@@ -154,7 +155,7 @@
               <div class="right-offer-info">
                 <div>
                   <span class="name-price">Damask Rose</span>
-                  <span>$49 <a href="catalogue.html"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a></span>
+                  <span>$49 <a href="catalogue.php"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a></span>
                 </div>
                 <div class="discount2">-25%</div>
                 
@@ -167,7 +168,7 @@
               <div class="right-offer-info">
                 <div>
                   <span class="name-price" >Assorted Colors</span>
-                  <span>$39 <a href="catalogue.html"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a></span>
+                  <span>$39 <a href="catalogue.php"><i class="fa fa-shopping-cart purple-cart" aria-hidden="true"></i></a></span>
                 </div>
                 <div class="discount3">-10%</div>
                 
@@ -207,28 +208,28 @@
       </div>
       <div class="pagination">
         <div class="ball1 ball"></div>
-        <div class="ball2 ball"></div>
-        <div class="ball3 ball"></div>
-        <div class="ball4 ball"></div>
-        <div class="ball5 ball" id="3"></div>
+        <div class="ball ball" ></div>
+        
       </div>
+
+        
     </section>
   
   <!-- products section -->
     <section class="section4">
       <div class="wrapper">
         <div class="divtittle">
-          <h3 class="title2" >Our Products</h3>
+          <h3 class="title2" id="3" >Our Products</h3>
         </div>
         <div class="samples-box" id="samples-container"></div>
             <script>
               const productsData = [
-                { name: 'Turkish Rose', imgSrc: './images/trjar.png', altText: 'Turkish Rose', price:'$50' },
-                { name: 'Rose Flower', imgSrc: './images/rfjar.png', altText: 'Rose Flower', price:'$49'},
-                { name: 'Assorted Colors', imgSrc: './images/acjar.png', altText: 'Assorted Colors', price:'$45'  },
-                { name: 'Daisy Flowers', imgSrc: './images/04jar.png', altText: 'Daisy Flowers', price:'$39'   },
-                { name: 'Alstroemeria', imgSrc: './images/05jar.png', altText: 'Alstroemeria', price:'$20'  },
-                { name: 'Peonies and Lilies', imgSrc: './images/06jar.png', altText: 'Peonies and Lilies', price:'$30' } 
+                { name: 'Turkish Rose', imgSrc: './images/mariage/flower2.png', altText: 'Turkish Rose', price:'$50' },
+                { name: 'Rose Flower', imgSrc: './images/anniversaire/flower6.png', altText: 'Rose Flower', price:'$49'},
+                { name: 'Assorted Colors', imgSrc: './images/valentin/flower4.png', altText: 'Assorted Colors', price:'$45'  },
+                { name: 'Daisy Flowers', imgSrc: './images/anniversaire/flower3.png', altText: 'Daisy Flowers', price:'$39'   },
+                { name: 'Alstroemeria', imgSrc: './images/mariage/flower3.png', altText: 'Alstroemeria', price:'$20'  },
+                { name: 'Peonies and Lilies', imgSrc: './images/valentin/flower1.png', altText: 'Peonies and Lilies', price:'$30' } 
               ];
 
               function generateProductHTML(product, index) {
@@ -236,16 +237,13 @@
                   <div class="product product${index + 1}">
                     <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
                     <div class="img-frame">
-                      <a href="product.html">
+                      <a href="product.php">
                         <img src="${product.imgSrc}" alt="${product.altText}">
                       </a>
                     </div>
-                    <span>Flower ${index + 1}</span>
-                    <form class="quantity">
-                      <input type="radio" id="q${index * 3 + 1}" name="quantity${index + 1}" checked><label for="q${index * 3 + 1}">9 unt.</label>
-                      <input type="radio" id="q${index * 3 + 2}" name="quantity${index + 1}"><label for="q${index * 3 + 2}">15 unt.</label>
-                      <input type="radio" id="q${index * 3 + 3}" name="quantity${index + 1}"><label for="q${index * 3 + 3}">21 unt.</label>
-                    </form>
+                    <span> ${product.name} </span>
+                  
+                      
                     <span class="price-span"> ${product.price} <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
                   </div>
                 `;
@@ -279,8 +277,8 @@
                 <img src="./images/customer1.png" alt="customer-photo">
               </div>
               <span>Susana Alberta</span> 
-              <span class="customer-description">09-07-2023 19:22</span>
-              <i class="fa fa-vk"></i>
+              <span class="customer-description">29-12-2023 19:22</span>
+              <i class="fa fa-reddit"></i>
           
               <i class="fa fa-facebook" ></i>
             </div> 
@@ -294,10 +292,10 @@
                 <img src="./images/customer2.png" alt="customer-photo">
               </div>
               <span>Janneth Carol</span> 
-              <span class="customer-description">10-07-2023 10:25</span>
+              <span class="customer-description">10-12-2023 10:25</span>
               <i class="fa fa-vk" aria-hidden="true"></i>
               &nbsp;
-              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <i class="fa fa-whatsapp" aria-hidden="true"></i>
             </div> 
             <div class="testimonial-text inner-box">
               "What truly sets [Boutique Name] apart is the impeccable customer service. Any questions I had were promptly addressed, and the level of care and attention to detail was exceptional.."
@@ -308,11 +306,11 @@
           <div class="customer">
             <div class="customer-info inner-box">
               <div class="photo-container">
-                <img src="./images/customer1.png" alt="customer-photo">
+                <img src="./images/customer3.png" alt="customer-photo">
               </div>
-              <span>Susana Alberta</span> 
-              <span class="customer-description">09-07-2023 19:22</span>
-              <i class="fa fa-vk" aria-hidden="true"></i>
+              <span>Pedro Becker</span> 
+              <span class="customer-description">15-02-2024 15:36</span>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
               &nbsp;
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </div> 
@@ -323,13 +321,13 @@
           <div class="customer">
             <div class="customer-info inner-box">
               <div class="photo-container">
-                <img src="./images/customer2.png" alt="customer-photo">
+                <img src="./images/customer4.png" alt="customer-photo">
               </div>
-              <span>Janneth Carol</span> 
-              <span class="customer-description">10-07-2023 10:25</span>
-              <i class="fa fa-vk" aria-hidden="true"></i>
+              <span>Della Tyler</span> 
+              <span class="customer-description">20-01-2024 19:04</span>
+              <i class="fa fa-instagram" aria-hidden="true"></i>
               &nbsp;
-              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
             </div> 
             <div class="testimonial-text inner-box">
               "What truly sets [Boutique Name] apart is the impeccable customer service. Any questions I had were promptly addressed, and the level of care and attention to detail was exceptional.."
@@ -340,12 +338,12 @@
       </div>
       
       <div class="pagination">
-          <div class="ball1 ball" id="4"></div>
-          <div class="ball2 ball"></div>
-          <div class="ball3 ball"></div>
-          <div class="ball4 ball"></div>
-          <div class="ball5 ball"></div>
-        </div>
+        <div class="ball2 ball" id="4"></div>
+        <div class="ball ball"></div>
+      </div>
+
+      
+      
     </section>
 
   <!-- our team/contact us section -->
@@ -421,12 +419,12 @@
           <div class="divtittle">
             <p class="title4" >Contact Us</p>
           </div>  
-          <form>
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <textarea name="message" placeholder="Votre message" rows="4" required></textarea>
-            <button type="submit">Envoyer</button>
-          </form>
+         
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+            <button onclick="sendMessage()">Send</button>
+         
         </div>
       
   </section>
