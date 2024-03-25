@@ -1,234 +1,140 @@
-<?php
-session_start();
-
-include ("database.php");
-if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SESSION["userID"])) {
-  $userID = $_SESSION["userID"];
-
-  if (isset($_POST['submit'])) {
-  // Retrieve data from form
-  $product_title = $_POST['product_title'];
-  $product_price = $_POST['product_price'];
-  $product_size = $_POST['product_size'];
-  $product_quantity = $_POST['product_quantity'];
-
-  // Prepare and execute SQL query
-  $sql = "INSERT INTO commande (nom_produit, size, prix, quantity, id_client) VALUES ('$product_title', '$product_size', '$product_price', '$product_quantity' , $userID)";
-
-  if (mysqli_query($conn, $sql)) {  
-      mysqli_close($conn);
-      sleep(2);
-      header("Location: payment.php");
-      exit();
-  
-  } else {
-    // Handle error
-    echo "Error: ";
-  }
-  }
-}
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Flowers shop - Product page</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="product.css">
-  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
 </head>
 <body>
+    <main>
+        <form action="" method="post">
+            <div class="container">
+                
+                <div class="left">
+                    <h3>BILLING ADDRESS</h3>
+                    
+                        Full name
+                        <input type="text" name="full_name" placeholder="Enter name"  />
+                        
+                        Email
+                        <input type="email" name="email" placeholder="Enter email" />
+                        
+                        Address
+                        <input type="text" name="address" placeholder="Enter address" />
 
-  <!-- header of the page-->
-  
-  <header>
-    <div class="header">
-      <div class="header-left">
-        <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
-        <span>Boutique Name</span>
-      </div>
-    </div>
-  </header>
-  <!-- main container -->
+                        City
+                        <input type="text" name="city" placeholder="Enter city" />
 
-  <main class="main-container">
-    <div class="selected-product">
-      <div class="product-img">
+                        <div id="Pin-code">
+                            <label class="state" >
+                                State
+                                <input type="text" name="state" placeholder="Enter your state" />
+                            </label>
 
-        <div class="main-img-frame">
-          <img src="" alt="Turkish Rose">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="product-title line">
-          <h1></h1>
-          <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-        </div>
-        <div class="size line">Size:</div>
-        <div class="size-options line">
-          <form class="quantity">
-            <input type="radio" id="q1" name="quantity" checked><label for="q1">9 unt.</label>
-            <input type="radio" id="q2" name="quantity"><label for="q2">15 unt.</label>
-            <input type="radio" id="q3" name="quantity"><label for="q3">21 unt.</label>
-            <input type="radio" id="q4" name="quantity"><label for="q4">31 unt.</label>
-          </form>
-        </div>
-        <div class="other-options line">
-          <div class="color-picker">
-            <span>Color:</span>
-            <div class="balls">
-              <div class="color-ball color-ball1"></div>
-              <div class="color-ball color-ball2"></div>
-              <div class="color-ball color-ball3"></div>
-              <div class="color-ball color-ball4"></div>
+                            <label class="sec1">
+                                <div>
+                                zip code 
+                                </div>
+                                
+                                <input type="number" name="zipcode" placeholder="Pin code" />
+                            </label>
+                        </div>
+                    
+                </div>
             </div>
-          </div>
-          <div class="delivery">
-            <span>Delivery:</span>
-            <div class="delivery-options">
-              <div class="options-line">
-                <div class="checkmark1 checkmark"></div>
-                <div class="delivery-option">By courier</div>
-                <div class="checkmark2 checkmark"></div>
-                <div class="delivery-option">Pick up</div>
-              </div>
-          </div>
-         
-          <div class="quantity2">
-            <span>Quantity:</span>
-            <div class="stepper">
-              <button id="decrement" onclick="stepper(this)"> - </button>
-              <input type="number" min="0" max="20" step="1" value="1" id="my-input" readonly>
-              <button id="increment" onclick="stepper(this)"> + </button>
-          </div>
-          </div>
-        </div>
-        </div>
-        <div class="total line">
-          <span>Price:</span>
-          <span class="price"> </span>
-          <form id="buy-form" action="" method="post" onsubmit="return sign()">
-            <input type="hidden" id="product-title" name="product_title">
-            <input type="hidden" id="product-size" name="product_size">
-            <input type="hidden" id="product-quantity" name="product_quantity">
-            <input type="hidden" id="product-price" name="product_price">
-            <input type="submit" class="buy-btn" value="Buy" name="submit"  />
-          </form>
-        </div>
-      </div>
-    </div>
+            <div class="container">    
+                <div class="right">
+                    <h3>PAYMENT</h3>
+                
+                        Accepted card
+                        <img src="https://logodix.com/logo/845851.png" alt="">
+                        
+                        Card number
+                        <input type="text" name="card_number" placeholder="Enter card number" />
+            
+            
+                        Exp month
+                        <input type="text" name="exp_month" placeholder="Enter month" />
+            
+                        <div id="Pin-code">
+                            <label>
+                                <DIV>Exp year</DIV>
+                                
+                                <select name="exp_year" required>
+                                    <option value="">Choose Year</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                </select>
+                            </label>
+            
+                            <label class="sec2">
+                                <div>CVV</div>
+        
+                                <input type="number" name="cvv" placeholder="CVV" pattern="[0-9]{3}" required/>
 
-    <!-- related products section -->
-
-    <div class="related-products">
-      <nav class="related-products-bar">
-        <h2 class="title">Related products</h2>
-        <div class="related-arrows">
-          <i class="fa fa-angle-left" aria-hidden="true"></i>
-          &nbsp;
-          <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </div>
-      </nav>
-      <div class="related-box">
-        <div class="related1 related">
-          <a href=""><i class="fa fa-heart-o like" aria-hidden="true"></i></a>
-          <div class="img-frame">
-            <a href="product.html">
-              <img src="./images/trjar.png" alt="Turkish Rose">
-            </a>
-          </div>
-          <span>Turkish Rose</span>
-          <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="related2 related">
-          <a href=""><i class="fa fa-heart-o like" aria-hidden="true"></i></a>
-          <div class="img-frame">
-            <a href="product.html">
-              <img src="./images/rfjar.png" alt="Rose Flower">
-            </a>
-          </div>
-          <span>Rose Flower</span>
-          <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-        <div class="related3 related">
-          <a href=""><i class="fa fa-heart-o like" aria-hidden="true"></i></a>
-          <div class="img-frame">
-            <a href="product.html">
-              <img src="./images/acjar.png" alt="Assorted Colors">
-            </a>
-          </div>
-          <span>Assorted Colors</span>
-          <span class="price-span">$49 <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        </div>
-      </div>
-    </div>
-    
-  </main>
-  <footer>
-     
-    <div class="footer_section" id="5">
-      <div class="container3">
-         <div class="location_main">
-            <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-map-marker" ></i></span> Location</a></div>
-            <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-phone" ></i></span> Call +216 71-235-095</a></div>
-            <div class="location_text"><a href="#"><span class="padding_15"><i class="fa fa-envelope" ></i></span>BoutiqueName@gmail.com</a></div>
-         </div>
-         <div class="footer_section_2">
-            <div class="row">
-               <div class="zone">
-                  <h3 class="footer_text">About Us</h3>
-                  <p class="lorem_text">With a commitment to quality and creativity, we source the freshest blooms from trusted local growers and artisans, ensuring that each arrangement is a vibrant celebration of nature's beauty. Whether you're marking a special occasion, sending a thoughtful gesture, or simply indulging in a bit of floral luxury for yourself, our dedicated team is here to exceed your expectations.</p>
-               </div>
-               <div class="zone">
-                  <h3 class="footer_text">Services </h3>
-                  <p class="lorem_text">At [Your Flower Shop Name], our dedicated team is always at your service, ready to assist you with all your floral needs. Whether you have questions about our products, need help selecting the perfect arrangement, or require assistance with your order, our knowledgeable and friendly staff are here to help.</p>
-               </div>
-               <div class="zone">
-                  <h3 class="footer_text">Subscribe</h3>
-                  <div class="form-group">
-                     <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
-                     <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                  </div>
-                  <div class="social_icon">
-                     <ul>
-                        <li><a href="#"><div class="fa fa-facebook" ></div></a></li>
-                        <li><a href="#"><div class="fa fa-twitter" ></div></a></li>
-                        <li><a href="#"><div class="fa fa-linkedin" ></div></a></li>
-                        <li><a href="#"><div class="fa fa-instagram" ></div></a></li>
-                        <li><a href="#"><div class="fa fa-youtube-play"></div></a></li>
-                     </ul>
-                  </div>
-               </div>
+                            </label>
+                            
+                        </div>
+                    <input type="submit" name="submit" value="Proceed Payment" class="btn">    
+                        
+                
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-   <!-- copyright section start -->
-   <div class="copyright_section">
-      <div class="container3">
-         <div class="row">
-            <div class="zone2">
-               <p class="copyright_text">2024 All Rights Reserved. Design by <a href="index.html #4">Our Team</a></p>
-            </div>
-         </div>
-      </div>
-   
-  </footer>
-  <script src="product.js">
-    
-  </script>
+         </form>
 
+    </main>
+    <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+    <script src="payment.js"></script>
 
-
-  
 </body>
 
 </html>
 
+<?php
+session_start(); 
+include ('database.php');
 
+if (isset($_POST['submit'])) {
+    // Check if the form was submitted
+
+    $numcard = $_POST['card_number'];
+    $date_exp = $_POST['exp_year'];
+    $adresse = $_POST['address'];
+    $zipcode = $_POST['zipcode'];
+    $cvv = $_POST['cvv'];
+    $userID = $_SESSION["userID"];
+
+    $checkCardQuery = "SELECT * FROM carte WHERE numcard = '$numcard' AND id ='$UserID' ";
+    $result = mysqli_query($conn, $checkCardQuery);
+    if (mysqli_num_rows($result) > 0) {
+        // Email already exists, display error message
+        sleep(2);
+        header("Location: postcard.php");
+        exit();
+    }else {
+
+
+    // Check if the email already exists in the database
+        $sql = "INSERT INTO carte (numcard, date_exp, adresse, zipcode, cvv, id) VALUES ('$numcard', '$date_exp', '$adresse', '$zipcode', '$cvv', '$userID')";
+        if (mysqli_query($conn, $sql)) {  
+            mysqli_close($conn);
+            sleep(2);
+            header("Location: postcard.php");
+            exit();
+        } else {
+            // Handle error
+            echo "Error: ";
+        }
+        }
+}    
+
+?>
