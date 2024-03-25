@@ -62,7 +62,7 @@ h3 {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("images/greenbg.png")fixed center center/100% 100% no-repeat;
+  background-color: #ffe4E6;
 }
 
 
@@ -74,7 +74,7 @@ h3 {
 
 .header-nav {
 
-  color: #ff8965;
+  color: #ffffff;
   padding: 25px 0 ;
   display: flex;
   align-items: center;
@@ -83,13 +83,16 @@ h3 {
   top:0;
   right:0;
   left:0;
-  background-color: #50ce31;
+  background-color: #1d1d1d;
   height: 50px;
   z-index: 2;
  
 }
 
-  
+.rose-logo{
+  height: 50px;
+ 
+}
   
 
 
@@ -102,9 +105,12 @@ h3 {
 .header-left {
   flex: 1;
   justify-content: left;
-  margin-left: 30px;
+  margin-left: 35px;
   
   
+}
+.header-left span{
+  margin-left: 10px;
 }
 .header-center {
   flex: 2;
@@ -113,7 +119,7 @@ h3 {
   
 }
 .header-center a{
-  color: #ff8965;
+  color: #ffffff;
 }
 .header-right {
   flex: 1;
@@ -122,15 +128,10 @@ h3 {
   margin-right: 30px;
 }
 .button {
-  background-color: #ff8965;
-  border: none;
+  background-color: #000000;
   color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  padding: 12px 22px;
   font-size: 20px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 30px;
 }
@@ -142,9 +143,13 @@ h3 {
   flex-direction: column;
   position: absolute;
   align-items: center;
-  top: 40vh;
+  top: 22vh;
   bottom: 5vh;
   margin-left: 100px;
+  
+}
+.main-text img{
+  height: 250px;
   
 }
 
@@ -357,7 +362,7 @@ h3 {
 
 .section3,.section5 {
   font-size: 1.8rem;
-  background: url("images/greenbg.png") fixed center center ;
+  background: url("images/brown.jpg") fixed center center/ 100%;
   
 }
 
@@ -433,14 +438,17 @@ h3 {
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  background: #92e44f;
+  background: #ffffff;
   border-radius: 1rem;
   margin: 2rem 0.5rem 4rem 0.5rem;
   cursor: pointer;
 }
 
 .ball1 {
-  background-color: white;
+  background-color: #92e44f;
+}
+.ball2 {
+  background-color: #92e44f;
 }
 
 
@@ -474,6 +482,7 @@ h3 {
   flex-wrap: wrap;
   width: 75%;
   margin: 0 auto;
+  
 }
 
 .product {
@@ -481,6 +490,7 @@ h3 {
   border: 1px solid whitesmoke;
   width: 30%;
   border-radius: 0.3rem;
+  
 }
 
 .product1 { margin: 0 1rem 1rem 0; }
@@ -495,11 +505,13 @@ h3 {
   margin: 1rem;
   font-size: 0.9rem;
   color: #d8055a;
+  cursor: pointer;
 }
 
 .img-frame {
   position: relative;
   width: 60%;
+  height: 350px;
   margin: 0 auto;
 }
 
@@ -1046,7 +1058,7 @@ textarea#comment::placeholder {
 
 
 
-/*=============== categorie/PROFIL menu ===============*/
+
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -1058,7 +1070,8 @@ textarea#comment::placeholder {
 --black-color-light: hsl(0, 0%, 100%);
 --black-color-lighten: hsl(220, 20%, 18%);
 
---body-color: hsl(220, 100%, 97%);
+--body-color: hsl(0, 0%, 100%);
+
 }
 
 
@@ -1077,6 +1090,10 @@ list-style: none;
 /*-webkit-tap-highlight-color: transparent;*/
 }
 
+.nav__menu a{
+  color: #000000;
+ 
+}
 
 .nav__link {
 color: var(--white-color);
@@ -1087,6 +1104,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 transition: background-color .3s;
+
 }
 
 .nav__link:hover {
@@ -1099,6 +1117,7 @@ background-color: var(--black-color-light);
 /*=============== DROPDOWN ===============*/
 .dropdown__item {
 cursor: pointer;
+
 }
 
 .dropdown__arrow {
@@ -1116,11 +1135,13 @@ align-items: center;
 column-gap: .5rem;
 font-weight: var(--font-semi-bold);
 transition: background-color .3s;
+
 }
 
 .dropdown__link i ,.dropdown__link2 i {
 font-size: 1.25rem;
 font-weight: initial;
+
 }
 
 .dropdown__link:hover , .dropdown__link2:hover{
