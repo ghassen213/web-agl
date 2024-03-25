@@ -29,6 +29,23 @@ h3 {
   font-weight: 100;
 }
   
+
+.flowers-catalogue {
+  position: relative;
+  color: black;
+  background-color: #bb6b6ba2;
+  width: 100%;
+  height: 2500px;
+}
+
+.page-header {
+  color: black;
+  margin-left: 150px;
+  font-size: 2rem;
+  
+}
+
+
 /* rules for the main container */
   
 .main-container {
@@ -38,7 +55,7 @@ h3 {
 /* rules for the catalogue page header */
   
 .header {
-  background-color: #bb6b6b;
+  background-color:   #1d1d1d;
   color: #ffffff;
   padding: 20px ;
   display: flex;
@@ -60,10 +77,30 @@ h3 {
 }
 .center{
   display: flex;
-
-
-  
 }
+
+.header-right {
+  margin-right: 30px;
+}
+.button {
+  background-color: #000000;
+  border: none;
+  color: rgb(253, 249, 249);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+
+
+
+/*    search bar  */  
+
 .search-bar{
   width: 100%;
   max-width: 400px;
@@ -120,40 +157,6 @@ h3 {
 }
 
 
-
-
-.header-right {
-  margin-right: 30px;
-}
-.button {
-  background-color: #ff8965;
-  border: none;
-  color: rgb(253, 249, 249);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 30px;
-}
-
-
-  .flowers-catalogue {
-    position: relative;
-    color: black;
-    background-color: #bb6b6ba2;
-    width: 100%;
-    height: 2500px;
-  }
-  
-  .page-header {
-    color: black;
-    margin-left: 150px;
-    font-size: 1.8rem;
-    
-  }
 /* ----------price slider---------- */
 .slider-container {
   width: 100%;
@@ -202,7 +205,7 @@ h3 {
     display: flex;
     align-items: start;
     position: relative;
-    height: 1700px;
+    height: 1800px;
     width: 85%;
     margin: 0 auto;
   }
@@ -318,6 +321,76 @@ h3 {
     margin: 1.5rem 1rem 1rem 1rem;
     cursor: pointer;
   }
+
+
+  /* category menu */
+  .select-menu{
+    width: 250px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 450px;
+    margin-top: 75px;
+  }
+  
+  .select{
+    background-color:#fdfdfd86;
+    padding: 20px;
+    color: #000000;
+    height: 15px;
+    border-radius: 20px;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .options-list{
+    position: absolute;
+    width: 100%;
+    background-color: #ecd5d5;
+    border-radius: 6px;
+    margin-top: 14px;
+    padding: 0 ;
+    max-height: 180px;
+    overflow-y: auto;
+    transition: .4s linear .1s;
+    height: 0;
+    z-index: 1;
+  }
+  
+  .option{
+    padding: 8px 10px;
+    font-weight: 500;
+    font-size: 20px;
+    transition: .2s ease-in-out;
+
+
+   
+  }
+  
+  .option:hover,
+  .option.selected{
+    color: #00a8ff;
+    background-color: #f3e0e0ec;
+    
+  }
+  
+  .options-list::-webkit-scrollbar{
+    width: 4px;
+    background-color: #eee;
+  }
+  
+  .options-list::-webkit-scrollbar-thumb{
+    background-color: #00a8ff;
+  }
+  
+  .options-list.active{
+    height: 180px;
+  }
+
+
+
   
   /* rules for the results box */
   
@@ -347,6 +420,12 @@ h3 {
   .result4 {margin: 0 0.25rem 0.5rem 0.25rem; }
   .result5 {margin: 0 0.25rem 0.5rem 0.25rem; }
   .result6 { margin: 0 0.25rem 0.5rem 0.25rem;}
+  .result7 {margin: 0 0.25rem 0.5rem 0.25rem; }
+  .result8 { margin: 0 0.25rem 0.5rem 0.25rem;}
+  .result9 { margin: 0 0.25rem 0.5rem 0.25rem;}
+  .result10 { margin: 0 0.25rem 0.5rem 0.25rem;}
+  .result11 { margin: 0 0.25rem 0.5rem 0.25rem;}
+  .result12 { margin: 0 0.25rem 0.5rem 0.25rem;}
   
   .result i {
     display: inline-block;
@@ -367,7 +446,7 @@ h3 {
     position: relative;
     bottom: 0;
     width: 100%;
-    height: auto;
+    height: 250px;
   }
   
   .quantity {
@@ -567,12 +646,6 @@ h3 {
   /* footer section end */
   
   
-  
-  
-  
-  
-  
-  
   /* copyright section start */
   
   .copyright_section {
@@ -611,68 +684,3 @@ h3 {
 
 
 
-
-  .select-menu{
-    width: 250px;
-    cursor: pointer;
-    position: relative;
-    margin-left: 450px;
-    margin-top: 75px;
-  }
-  
-  .select{
-    background-color:#fdfdfd86;
-    padding: 20px;
-    color: #000000;
-    height: 15px;
-    border-radius: 20px;
-    font-size: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  .options-list{
-    position: absolute;
-    width: 100%;
-    background-color: #ecd5d5;
-    border-radius: 6px;
-    margin-top: 14px;
-    padding: 0 ;
-    max-height: 180px;
-    overflow-y: auto;
-    transition: .4s linear .1s;
-    height: 0;
-    z-index: 1;
-  }
-  
-  .option{
-    padding: 8px 10px;
-    font-weight: 500;
-    font-size: 20px;
-    transition: .2s ease-in-out;
-
-
-   
-  }
-  
-  .option:hover,
-  .option.selected{
-    color: #00a8ff;
-    background-color: #f3e0e0ec;
-    
-  }
-  
-  .options-list::-webkit-scrollbar{
-    width: 4px;
-    background-color: #eee;
-  }
-  
-  .options-list::-webkit-scrollbar-thumb{
-    background-color: #00a8ff;
-  }
-  
-  .options-list.active{
-    height: 180px;
-  }
