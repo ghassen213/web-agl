@@ -259,9 +259,12 @@ table{
 tr{
     text-align: center;
 }
-tbody>tr>td:last-child{
+tbody>tr>td:last-child  button{
     cursor: pointer;
     padding: 2px;
+    font-size: 20px;
+    width: 120px;
+    border: none;
     background-color: rgb(251, 60, 60);
 }
 
