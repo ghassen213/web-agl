@@ -1,36 +1,70 @@
 
+    //********* function teb3a el flechet mta el galory *******//
     let scrollContainer = document.querySelector(".slideshow");
     let backbtn = document.getElementById("backbtn");
     let nextbtn = document.getElementById("nextbtn");
-  
- 
-    nextbtn.addEventListener("click", ()=>{
-      scrollContainer.style.scrollBehavior = "smooth";
-      scrollContainer.scrollLeft += 1900;
-    });
-  
-    backbtn.addEventListener("click", ()=>{
-      scrollContainer.style.scrollBehavior = "smooth";
-      scrollContainer.scrollLeft -= 2000;
-    });
+    
 
 
+// Add event listeners for next and back buttons
+nextbtn.addEventListener("click", () => {
+    scrollContainer.style.scrollBehavior = "smooth";
+    scrollContainer.scrollLeft += 1900;
+
+    // Change the active ball
+    var currentActive = document.querySelector('.ball1');
+    if (currentActive.nextElementSibling) {
+        currentActive.classList.remove('ball1');
+        currentActive.nextElementSibling.classList.add('ball1');
+    }
+});
+
+backbtn.addEventListener("click", () => {
+    scrollContainer.style.scrollBehavior = "smooth";
+    scrollContainer.scrollLeft -= 2000;
+
+    // Change the active ball
+    var currentActive = document.querySelector('.ball1');
+    if (currentActive.previousElementSibling) {
+        currentActive.classList.remove('ball1');
+        currentActive.previousElementSibling.classList.add('ball1');
+    }
+});
+
+
+
+
+
+    
+    //********* function teb3a el flechet mta el client feedback *******//
     let testimonialsContainer = document.querySelector(".testimonials-box");
-    let testimonialsBackBtn = document.getElementById("BackBtn2");
-    let testimonialsNextBtn = document.getElementById("NextBtn2");
-  
+let testimonialsBackBtn = document.getElementById("BackBtn2");
+let testimonialsNextBtn = document.getElementById("NextBtn2");
 
-  
-    testimonialsNextBtn.addEventListener("click", ()=>{
-      testimonialsContainer.style.scrollBehavior = "smooth";
-      testimonialsContainer.scrollLeft += 2500;
-    });
-  
-    testimonialsBackBtn.addEventListener("click", ()=>{
-      testimonialsContainer.style.scrollBehavior = "smooth";
-      testimonialsContainer.scrollLeft -= 2500;
-    });
+testimonialsNextBtn.addEventListener("click", () => {
+    testimonialsContainer.style.scrollBehavior = "smooth";
+    testimonialsContainer.scrollLeft += 2500;
 
+    var currentActive = document.querySelector('.ball2');
+    if (currentActive.nextElementSibling) {
+        currentActive.classList.remove('ball2');
+        currentActive.nextElementSibling.classList.add('ball2');
+    }
+});
+
+testimonialsBackBtn.addEventListener("click", () => {
+    testimonialsContainer.style.scrollBehavior = "smooth";
+    testimonialsContainer.scrollLeft -= 2500;
+
+    var currentActive = document.querySelector('.ball2');
+    if (currentActive.previousElementSibling) {
+        currentActive.classList.remove('ball2');
+        currentActive.previousElementSibling.classList.add('ball2');
+    }
+});
+
+
+  //********** function t3abi el kloub ki tenzel alehom  *********//  
 
     function changeClass2(element) {
         var isHeartFilled = element.classList.contains('fa-heart');
@@ -51,7 +85,7 @@
 
 
 
-    //remove sign in login button//
+    //********remove sign in login button (lezem nfasarha)*********//
     let clname = JSON.parse(sessionStorage.getItem("clname"));
     let signUpButton = document.getElementById("signupButton");
     let loginButton = document.getElementById("loginButton");
@@ -73,13 +107,13 @@
 
     }
     
-
+//******* ki tenzel log out yarj3ou el buttons *******//
 function reset(){
     sessionStorage.removeItem("logedin");
   }
 
 
-
+  //********** lezem nfasarha teb3a el catalogue **********//
   document.addEventListener("DOMContentLoaded", function() {
     const dropdownLinks = document.querySelectorAll('.dropdown__link');
     
@@ -101,4 +135,28 @@ function reset(){
             sessionStorage.setItem('position', position);
         });
     });
+});
+
+
+//******* function teb3a contact us  ********//
+function sendMessage() {
+  alert("Message Sent, Thanks!"); // Show alert
+  location.reload(); // Refresh the page
+}
+
+
+
+var prevScrollPos = window.pageYOffset;
+
+window.addEventListener('scroll', function() {
+    var currentScrollPos = window.pageYOffset;
+
+    // Calculate opacity based on scroll direction
+    var opacity = currentScrollPos < prevScrollPos ? 1 : 0;
+
+    // Set opacity
+    document.querySelector('header').style.opacity = opacity;
+
+    // Update previous scroll position
+    prevScrollPos = currentScrollPos;
 });
