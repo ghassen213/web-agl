@@ -107,15 +107,25 @@ body{
 
 nav a {
     list-style: none;
-    padding: 35px;
+    padding: 35px  ;
     color: #fff;
-    font-size: 1.3em;
+    font-size: 1.6em;
     display: block;
     transition: all .3s ease-in-out;
-    padding-top: 100px;
+    margin-top: 110px;
     margin-left: 10px;
+    height: 50px;
+  
+
+ 
+   
     
 }
+nav a i {
+   margin-top: 30px;
+
+}
+
 
 nav a:hover {
     color:#10ac84;
@@ -394,4 +404,9 @@ textarea#comment::placeholder {
     /* copyright section end */
     
     
-    
+.history {
+ 
+    width: 1300px;
+ 
+
+} 
