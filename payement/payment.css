@@ -1,44 +1,57 @@
 body{
     margin: 0;
+   
+  
 }
-header{
+main{
 
-    width: 100vw;
-    min-height: 100vh;
-    background: #c664ff; 
+    width: 100%;
+    height: 953px;
+  
+    background: url("images/pay.png")fixed center center/100% 100% no-repeat;
     font-size: 1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 
 .container{
     background:rgb(240, 241, 239);
-    max-width: 1000px;
-    min-height: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    opacity: 95%;
+    width: 750px;
+    height: 550px;
+   
+   
     padding: 1rem 3rem;
+    border-radius: 4%;
+
     
 }
-.left{
-    flex-basis: 30%;
-   
-}
-.right{
-    flex-basis: 30%;
+.left,
+.right {
+    width: 80%; /* Set the width of each container */
 }
 
 form{
 
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    
 }
+input {
+    width: 12rem;
+    margin: 0 auto 2rem;
+} 
 
 form input[type="text"]{
 
     width: 100%;
-    padding: 0.5rem 0.7rem;
+    padding: 0.7rem 0.7rem;
     margin: 0.5rem 0;
     outline: none;
     
@@ -66,95 +79,60 @@ form input[type="email"]{
 }
 .sec1{
 
-    margin-left: 50px;
-    margin-top: 8px;
-  
+    margin-left: 80px;
+     
+}
+.sec1 input {
+    height: 20px;
+    margin:  0.5rem 0;
 }
 .sec2{
 
     margin-left: 30px;
-   
-   
-  
+}
+.sec2 input {
+    height: 20px;
+    margin:  0.5rem 0;
 }
 
 #Pin-code select{
     padding: 0.5rem 0.7rem;
+    margin:  0.5rem 0;
+    height: 40px;
    
 }
 #Pin-code input[type="number"]{
 
     padding: 0.5rem 0.7rem;
+
     
 }
 .right img{
        width: 100%;
-       height: 45px;
-}
-
- .btn{
-
-    width: 100%;
-    padding: 0.7rem 1.5rem;
-    background: green;
-    color: white;
-    border: none;
-    outline: none;
-    margin-top: 2.2rem;
-    cursor: pointer;
-}
-
-
-* {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.content {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-p {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 0;
-}
-
-.text {
-    font-size: 1rem;
-}
-
-.text span:last-child {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #0d6efd;
-}
-
-.block {
-    display: block;
+       height: 60px;
 }
 
 .btn {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    font-size: 1.5rem;
-    padding: 0.5rem 2rem;
-    margin: 0 auto 2rem;
-    border: 0;
+    background-color: #0b5ed7;
+    border: none;
+    color: rgb(253, 249, 249);
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    font-size: 20px;
+    margin: 40px 250px;
+    cursor: pointer;
+    border-radius: 30px;
 } 
 
 .btn:active,
 .btn:hover {
     color: #fff;
-    background-color: #0b5ed7;
+    background-color: #4086f0;
     border-color: #0a58ca;
 }
 
-input {
-    width: 15rem;
-    margin: 0 auto 2rem;
-} 
+
+
+
