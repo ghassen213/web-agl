@@ -1,3 +1,4 @@
+//******* Function teb3a el barre zarka mta el prix  **********/
 const priceSlider = document.getElementById('priceSlider');
 const priceValue = document.getElementById('priceValue');
 
@@ -9,6 +10,9 @@ priceSlider.addEventListener('input', () => {
 priceValue.textContent = '$' + priceSlider.value;
 
 
+
+
+//******** function ki tnnzel 3al les case li ta7et couleur trodhom checked *********//
 function changeClass(element, section) {
   var sectionDiv = document.querySelector('.' + section);
   var allForWhom = sectionDiv.querySelectorAll('.for-whom');
@@ -18,6 +22,7 @@ function changeClass(element, section) {
   element.parentElement.classList.add('for-whom1');
 }
 
+//******** ki tenzel al kaleb li fouk el produit ywali a7mer m3abi  **********//
 function changeClass2(element) {
   var isHeartFilled = element.classList.contains('fa-heart');
   var allHeartIcons = document.querySelectorAll('.results-box i.fa-heart');
@@ -26,15 +31,13 @@ function changeClass2(element) {
     element.classList.remove('fa-heart');
     element.classList.add('fa-heart-o');
   } else {
-    for (var i = 0; i < allHeartIcons.length; i++) {
-      allHeartIcons[i].classList.remove('fa-heart');
-      allHeartIcons[i].classList.add('fa-heart-o');
-    }
+ 
     element.classList.remove('fa-heart-o');
     element.classList.add('fa-heart');
   }
 }
 
+//******** function bch tchecki beha el colors *********//
 function selectColor(element) {
   var colors = document.querySelectorAll('.color');
   for (var i = 0; i < colors.length; i++) {
@@ -49,6 +52,8 @@ function selectColor(element) {
 
 }
 
+
+//********** hedhi lezem nfasarha  ************//
 var nom = sessionStorage.getItem("nom");
 var position = sessionStorage.getItem("position");
 const tab = document.querySelectorAll('.results-box');
@@ -63,17 +68,26 @@ function tabs(panelIndex) {
 }
 if (nom && position) {
   tabs(position);
-  const select = document.querySelector(".select"); // Using querySelector to select the first element with the class "select"
+  const select = document.querySelector(".select"); 
   if (select) {
-      const spanElement = select.querySelector("span"); // Using querySelector to find the span element inside the select element
+      const spanElement = select.querySelector("span"); 
       if (spanElement) {
           spanElement.innerHTML = nom;
       }
   }
+
 } else {
   tabs(0);
 }
 
+function removeItemsFromSessionStorage() {
+  sessionStorage.removeItem("nom"); 
+  sessionStorage.removeItem("position");
+}
+
+window.addEventListener('beforeunload', function(event) {
+  removeItemsFromSessionStorage();
+});
 
 
 
@@ -82,6 +96,7 @@ if (nom && position) {
 
 
 
+//******** function teb3a menu mta el category ***********//
 const select = document.querySelector(".select");
 const options_list = document.querySelector(".options-list");
 const options = document.querySelectorAll(".option");
