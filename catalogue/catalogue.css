@@ -19,8 +19,8 @@ a {
 }
   
 a:hover {
-  color: rgb(0, 0, 0);
-  text-shadow: 1px 1px magenta;
+  color: rgb(218, 183, 218);
+  text-shadow: 1px 1px rgb(218, 183, 218);
 }
   
 h1,
