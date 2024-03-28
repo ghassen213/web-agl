@@ -75,7 +75,86 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
 }
 ?>
 
+<?php
+include("database.php");
 
+if (isset($_POST["update"])) {
+    // Initialize variables to store the updated values
+    $updateQuery = [];
+    $updateQuery2 = [];
+
+    // Sanitize input data
+    $userID = mysqli_real_escape_string($conn, $_SESSION["userID"]);
+    $name = mysqli_real_escape_string($conn, $_POST["name"]);
+    $name2 = mysqli_real_escape_string($conn, $_POST["name2"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+    
+    // Check which fields have been provided by the user and add them to the update queries
+    if (!empty($name)) {
+        $updateQuery[] = "nom = '$name'";
+    }
+    if (!empty($name2)) {
+        $updateQuery[] = "prenom = '$name2'";
+    }
+    if (!empty($email)) {
+        $updateQuery[] = "email = '$email'";
+    }
+    if (!empty($password)) {
+        $updateQuery[] = "password = '$password'";
+    }
+    
+    // Construct and execute the update query for the client table
+    if (!empty($updateQuery)) {
+        $query = "UPDATE client SET " . implode(", ", $updateQuery) . " WHERE id = $userID";
+        $result = mysqli_query($conn, $query);
+        echo "<script>window.location.href = window.location.href;</script>";
+        
+
+    
+
+        
+    }
+    
+    // Check if the address field was provided and add it to the update query
+    if (isset($_POST["adresse"])) {
+        $adresse = mysqli_real_escape_string($conn, $_POST["adresse"]);
+        $updateQuery2[] = "adresse = '$adresse'";
+        
+        // Construct and execute the update query for the carte table
+        $query2 = "UPDATE carte SET " . implode(", ", $updateQuery2) . " WHERE id = $userID";
+        $result2 = mysqli_query($conn, $query2);
+        echo "<script>window.location.href = window.location.href;</script>";
+    }elseif(empty($updateQuery) && empty($updateQuery2)){
+        echo "<script>alert('No Data typed!'); window.location.href = window.location.href;</script>";
+     }
+}
+
+
+if (isset($_POST['confirm_delete']) && $_POST['confirm_delete'] == '1') {
+    if (isset($_SESSION["userID"])) {
+        $userID = $_SESSION["userID"];
+        // Prepare the delete statement
+        $query = "DELETE FROM client WHERE id = $userID";
+        $result = mysqli_query($conn, $query);
+
+        // Check if the deletion was successful
+        if ($result) {
+            echo "<script>alert('Account deleted successfully!');</script>";
+            unset($_SESSION["userID"]);
+            sleep(2);
+            header("Location: index.html");
+            exit();
+        } else {
+            echo "<script>alert('Failed to delete the account.');</script>";
+        }
+    } else {
+        echo "<script>alert('User ID not found.');</script>";
+    }
+}
+
+mysqli_close($conn);
+?>
 
 
 
@@ -96,8 +175,8 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
     <header>
         <div class="header">
           <div class="header-left">
-            <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
-            <span>Boutique Name</span>
+          <img  class="rose-logo" src="./images/logo.png" alt="logo">
+            <span>Flora Boutique </span>
           </div>
           
           <div class="header-right">
@@ -108,25 +187,8 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
 
     <section class="main-profil">
     <div class="container"> 
-        <div class="leftbox">
-            <nav>
-                <a onclick="tabs(0)" class="tab">
-                    <i class="fa fa-user"></i>
-                </a>
-                <a onclick="tabs(1)" class="tab">
-                    <i class="fa fa-credit-card"></i>
-                </a>
-              
-                <a onclick="tabs(2)" class="tab">
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
-                <a  onclick="tabs(6)" class="tab">
-                    <i class="fa fa-cog"></i>
-                    
-                </a>
-          
-            </nav>
-        </div>
+       
+        
         <div class="rightbox">
             <div class="profile tabShow">
                 <h1>Personal Info</h1>
@@ -141,26 +203,32 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
                 <h2>Password</h2>
                 <input type="password" class="input" id="passwordField" value="<?php echo isset($password) ? $password : ''; ?>">
                 <span class="fa fa-eye" id="togglePasswordVisibility" onclick="togglePasswordVisibility()"></span>
-                <button class="btn">Update</button>
             </div>
-       
-            <div class="payment tabShow">
-                <h1>Payment Info</h1>
-                <h2>Payment Method</h2>
-                <input type="text" class="input" value=" VisaCard- <?php echo isset($numcarte) ?  $numcarte : ''; ?>">
-                <h2>Date_exp</h2>
-                <input type="text" class="input" value="<?php echo isset($date_exp) ? $date_exp : ''; ?>">
-                <h2>Adresse</h2>
-                <input type="text" class="input" value="<?php echo isset($adresse) ? $adresse : ''; ?>">
-                <h2>Zip Code</h2>
-                <input type="text" class="input" value="<?php echo isset($zipcode) ? $zipcode : ''; ?>">
-                <h2>cvv</h2>
-                <input type="text" class="input" value="<?php echo isset($cvv ) ? $cvv  : ''; ?>">
-                <button class="btn">Update</button>
-            </div>
-    
-            <?php if(!empty($purchase_history)): ?>
+
+            <?php if(empty($purchase_history)): ?>
+                <div class="tabShow">
+                    <h1>Payment Info</h1>  
+                    <h1 style="margin-top: 300px ; color :brown";>No Card Used Yet.</h1>   
+                </div>         
+               
+                <?php else: ?>
+                <div class="payment tabShow">
+                    <h1>Payment Info</h1>
+                    <h2>Payment Method</h2>
+                    <input type="text" class="input" value=" VisaCard- <?php echo isset($numcarte) ?  $numcarte : ''; ?>">
+                    <h2>Date_exp</h2>
+                    <input type="text" class="input" value="<?php echo isset($date_exp) ? $date_exp : ''; ?>">
+                    <h2>Adresse</h2>
+                    <input type="text" class="input" value="<?php echo isset($adresse) ? $adresse : ''; ?>">
+                    <h2>Zip Code</h2>
+                    <input type="text" class="input" value="<?php echo isset($zipcode) ? $zipcode : ''; ?>">
+                    <h2>cvv</h2>
+                    <input type="text" class="input" value="<?php echo isset($cvv ) ? $cvv  : ''; ?>">
+                </div>
+            <?php endif; ?>
+
             <?php $counter = 2; ?>
+            <?php if(!empty($purchase_history)): ?>
             <?php foreach($purchase_history as $index => $item): ?>
                 <div class="history2 tabShow" id="history_<?php echo $counter; ?>">
                     <h1>Purchase History</h1>
@@ -180,25 +248,77 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
                         <button class="btn" onclick="tabs(<?php echo $counter - 1; ?>)">Previous</button>
                     <?php endif; ?>
                     <?php if (isset($purchase_history[$index + 1])): ?>
-                        <button class="btn" onclick="tabs(<?php echo $counter + 1; ?>)">Next</button>
+                        <button class="btn" onclick="tabs(<?php echo $counter +1; ; ?>)">Next</button>
                     <?php else: ?>
-                        <h3 style="color: brown";>No more purchases</h3>
+                        <h3 style="color: brown";>Thats all ,No more purchases</h3>
                     <?php endif; ?>
                 </div>
                 <?php $counter++; ?>
             <?php endforeach; ?>
-        <?php else: ?>
-            <h1 class="tabShow" style="margin-top: 350px ; color :brown";>No purchase history found.</h1>
-        <?php endif; ?>
             
-             
+            <?php else: ?>
+                <div class="tabShow">
+                    <h1>Purchase History</h1>
+                    <h1 style="margin-top: 300px ; color :brown";>No purchase history found.</h1>
+                </div>
+            <?php endif; ?>
           
            
            
-        </div>
 
         
-        
+            <div class="Settings tabShow">
+            <h1>Settings</h1>
+            <form id="update_form" method="post" action="">
+                <h2>Change First Name</h2>
+                <input type="text" class="input" name="name" value="">
+                <h2>Change Last Name</h2>
+                <input type="text" class="input" name="name2" value="">
+                <h2>Change Adresse</h2>
+                <input type="text" class="input" name="adresse" value="">
+                <h2>Change Email</h2>
+                <input type="email" class="input" name="email" value="">
+                <h2>Change Password</h2>
+                <input type="password" class="input" id="updatedpass" name="password" value="">
+                <span class="fa fa-eye" id="togglePasswordVisibility2" onclick="togglePasswordVisibility2()"></span>
+                
+                <!-- Delete Account Button -->
+                <button class="btn" type="submit" name="update" style="margin-left: 170px;" onclick="reload()">Update</button>
+                <br>
+                <button class="btn2" type="button" onclick="confirmDelete()">Delete account</button>
+                <input type="hidden" name="confirm_delete" id="confirmDeleteInput" value="0">
+
+                <!-- Update Button -->
+            
+            </form>
+            </div>  
+        </div>
+
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)" class="tab">
+                    <i class="fa fa-user"></i>
+                    </a>
+                <a onclick="tabs(1)" class="tab">
+                    <i class="fa fa-credit-card"></i>
+                    </a>
+                        
+                <a onclick="tabs(2)" class="tab">
+                    <i class="fa fa-shopping-cart"></i>
+                    </a>
+                    <?php if ($counter == 2) : ?>
+                     <a  onclick="tabs(3)" class="tab">
+                    <i class="fa fa-cog"></i>
+                    </a>
+                <?php else : ?>
+                <a  onclick="tabs(<?php echo isset($counter) ? $counter : ''; ?>)" class="tab">
+                    <i class="fa fa-cog"></i>
+                    </a>
+                <?php endif; ?>
+                
+                
+            </nav>
+        </div>     
     </div>
 </section>
 
@@ -262,13 +382,12 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
 
 
  
-    
+  
 
 
 
 
 <script>
-    
     document.querySelectorAll(".tab").forEach(function(tab) {
     tab.addEventListener("click", function() {
         // Add "active" class to the clicked tab
@@ -300,9 +419,11 @@ function tabs(panelIndex){
     });
 }
 tabs(0);
+
 function togglePasswordVisibility() {
   var passwordField = document.getElementById("passwordField");
   var eyeIcon = document.getElementById("togglePasswordVisibility");
+
 
   if (passwordField.type === "password") {
       passwordField.type = "text";
@@ -314,9 +435,39 @@ function togglePasswordVisibility() {
       eyeIcon.classList.add("fa-eye");
   }
 }
+function togglePasswordVisibility2() {  
+    var updatedpass = document.getElementById("updatedpass");
+    var eyeIcon2 = document.getElementById("togglePasswordVisibility2");
 
-  
+  if (updatedpass.type === "password") {
+      updatedpass.type = "text";
+      eyeIcon2.classList.remove("fa-eye");
+      eyeIcon2.classList.add("fa-eye-slash");
+  } else {
+        updatedpass.type = "password";
+        eyeIcon2.classList.remove("fa-eye-slash");
+        eyeIcon2.classList.add("fa-eye");
+  }
+}
 </script>
+<script type="text/javascript">
+function confirmDelete() {
+    var confirmation = confirm("Are you sure you want to delete your account?");
+    if (confirmation) {
+        document.getElementById("confirmDeleteInput").value = "1"; // Set confirm_delete flag to 1
+        document.getElementById("update_form").submit(); // Submit the update form
+        sessionStorage.removeItem("logedin");
+    } else {
+        document.getElementById("confirmDeleteInput").value = "0"; // Set confirm_delete flag to 0
+    }
+}
+</script>
+    <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+
 
 </body>
 </html>    
