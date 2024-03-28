@@ -113,28 +113,25 @@ if (isset($_POST['submit'])) {
     $cvv = $_POST['cvv'];
     $userID = $_SESSION["userID"];
 
-    $checkCardQuery = "SELECT * FROM carte WHERE numcard = '$numcard' AND id ='$UserID' ";
+    $checkCardQuery = "SELECT * FROM carte WHERE numcard = '$numcard' AND id ='$userID' ";
     $result = mysqli_query($conn, $checkCardQuery);
     if (mysqli_num_rows($result) > 0) {
         // Email already exists, display error message
         sleep(2);
-        header("Location: postcard.php");
+        header("Location: postcard.html");
         exit();
     }else {
-
-
-    // Check if the email already exists in the database
         $sql = "INSERT INTO carte (numcard, date_exp, adresse, zipcode, cvv, id) VALUES ('$numcard', '$date_exp', '$adresse', '$zipcode', '$cvv', '$userID')";
         if (mysqli_query($conn, $sql)) {  
             mysqli_close($conn);
             sleep(2);
-            header("Location: postcard.php");
+            header("Location: postcard.html");
             exit();
         } else {
             // Handle error
             echo "Error: ";
         }
-        }
+    }
 }    
 
 ?>
