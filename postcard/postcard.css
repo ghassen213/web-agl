@@ -1,0 +1,127 @@
+
+body {
+  height: 850px;
+ background: url('images/postcardbg3.jpg'); 
+ background-size: cover; /* Pour couvrir toute la zone d'affichage */
+ background-repeat: no-repeat; /* Pour éviter la répétition de l'image */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 0;
+ margin: 0;
+}
+
+main {
+  padding: 20px;
+
+}
+
+h1 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.title {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+
+}
+.title h1,p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: rgba(12, 12, 12, 0.795);
+  margin: 0;
+}
+
+.choix-thematique ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 160px;
+
+}
+.choix-thematique ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+.choix-thematique ul li a {
+  display: block;
+}
+
+.choix-thematique ul li img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.formulaire {
+  padding: 20px;
+}
+.formulaire input[type="text"] {
+  height: 30px;
+}
+
+.formulaire input[type="text"], .formulaire textarea {
+  width: 550px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  margin-left: 164px;
+  resize: none;
+  border-radius: 20px;
+  box-shadow: black ;
+  
+}
+input:focus,textarea:focus{
+  color: turquoise;
+  background-color: white;
+  outline-color: turquoise;
+  box-shadow: -2px -2px 15px turquoise;
+  transition: .1s ;
+  transition-property: border;
+
+}
+::placeholder{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:30px;
+  margin-top:40px;
+}
+.btn {
+  background-color: turquoise;
+  color: white;
+  padding: 12px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+ 
+}
+
+
+.point-vert {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: turquoise;
+    border-radius: 50%;
+}
+
+#img {
+  position: relative;
+  border-radius: 50%;
+}
+
