@@ -117,5 +117,3 @@ options.forEach((option) => {
    
   });
 });
-
-
