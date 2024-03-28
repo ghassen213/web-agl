@@ -21,8 +21,18 @@ a {
 
 a:hover {
   color: rgb(0, 0, 0);
-  text-shadow: 1px 1px magenta;
+  text-shadow: 1px 1px rgb(223, 163, 223);
  
+}
+.header-center a:hover{
+  color: rgba(221, 132, 73, 0.795);
+  text-shadow: 1px 1px rgb(223, 163, 223);
+
+}
+.header-right a:hover{
+  color: rgba(221, 132, 73, 0.795);
+  text-shadow: 1px 1px rgb(223, 163, 223);
+
 }
 
 h1,
@@ -1187,6 +1197,8 @@ transform: rotate(180deg);
 }
 .nav__link:hover {
   background-color: transparent;
+  color: rgba(221, 132, 73, 0.795);
+  text-shadow: 1px 1px rgb(223, 163, 223);
 }
 
 .dropdown__item{
