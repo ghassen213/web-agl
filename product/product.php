@@ -2,34 +2,40 @@
 session_start();
 
 include ("database.php");
+
 if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SESSION["userID"])) {
   $userID = $_SESSION["userID"];
 
   if (isset($_POST['submit'])) {
-  // Retrieve data from form
-  $product_title = $_POST['product_title'];
-  $product_price = $_POST['product_price'];
-  $product_size = $_POST['product_size'];
-  $product_quantity = $_POST['product_quantity'];
+    // Retrieve data from form
+    $product_title = $_POST['product_title'];
+    $product_price = $_POST['product_price'];
+    $product_size = $_POST['product_size'];
+    $product_quantity = $_POST['product_quantity'];
 
-  // Prepare and execute SQL query
-  $sql = "INSERT INTO commande (nom_produit, size, prix, quantity, id_client) VALUES ('$product_title', '$product_size', '$product_price', '$product_quantity' , $userID)";
+    // Prepare and execute SQL query to insert product
+    $sql_insert = "INSERT INTO commande (nom_produit, size, prix, quantity, id_client) VALUES ('$product_title', '$product_size', '$product_price', '$product_quantity' , $userID)";
 
-  if (mysqli_query($conn, $sql)) {  
+    if (mysqli_query($conn, $sql_insert)) {  
+      // Get the ID of the inserted product
+      $last_id = mysqli_insert_id($conn);
+
+      // Store the ID in a session variable
+      $_SESSION["lastInsertedProductID"] = $last_id;
+
       mysqli_close($conn);
       sleep(2);
       header("Location: payment.php");
       exit();
   
-  } else {
-    // Handle error
-    echo "Error: ";
-  }
+    } else {
+      // Handle error
+      echo "Error: ";
+    }
   }
 }
-
-
 ?>
+
 
 
 <!DOCTYPE html>
