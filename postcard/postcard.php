@@ -1,3 +1,24 @@
+<?php
+session_start(); 
+include ('database.php');
+if (isset($_POST['submit'])) {
+    // Check if the form was submitted
+    $last_id = $_SESSION["lastInsertedProductID"]; // Corrected session variable name
+    $message = $_POST['message'];
+    // Check if the email already exists in the database
+    $sql = "UPDATE commande SET message='$message' WHERE id_commande='$last_id'";
+    $result = mysqli_query($conn, $sql);
+    if ($result){
+      echo "<script>alert('thanks for shoping '); window.location.href = 'index.html';</script>";
+    }
+}
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,14 +47,14 @@
 
 
     <section class="formulaire">
-      <form action="">
+      <form action="" method="post">
         
         <input type="text" id="nom" class="nom" name="nom" placeholder="Your Name (optional)">
         <br>
         <br>
         <textarea id="message" name="message" rows="10" cols="50" placeholder="Your Message (optional)"></textarea>
         <div class="buttons">
-          <input type="submit" class="btn" value="Valid" id="valid" onclick="submitForm(event)">
+          <input type="submit" class="btn" name="submit" value="Valid" id="valid" onclick="submitForm(event)">
         </div>
 
       </form>
@@ -67,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-function submitForm(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-        alert('Thanks for shopping');
-        setTimeout(() => window.location.href = "index.html", 1500);
 
-    }
   </script>
+  <script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
 </body>
 </html>
