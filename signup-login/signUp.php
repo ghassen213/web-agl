@@ -3,7 +3,7 @@ session_start();
 include ('database.php');
 $verif = 0 ;
 if (isset($_POST['submit'])) {
-    // Check if the form was submitted
+
 
     $firstName = $_POST['FirstName'];
     $lastName = $_POST['LastName'];
@@ -119,7 +119,6 @@ $_SESSION["verif"] = $verif;
 
     }
 </script>    
-
 </html>
 
 
