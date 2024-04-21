@@ -26,7 +26,6 @@ checkOut.addEventListener("click", (e) => {
     let check = prompt(`Enter Otp: ${otp}`);
     if (check === otp) {
       alert("Thank you for shopping.");
-      
       genOtp();
     } else {
       alert("verification code incorrect");
