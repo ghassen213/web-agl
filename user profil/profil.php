@@ -8,6 +8,7 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
 
     // Retrieve user data from the database based on the user ID
     $query = "SELECT * FROM client WHERE id = $userID";
+  
     $result = mysqli_query($conn, $query);
     
     // Check if the query was successful and if there is any data returned
@@ -52,18 +53,29 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
 include("database.php");
 
 // Check if the user is logged in and has a valid user ID stored in the session
-if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SESSION["userID"])) {
+if (isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SESSION["userID"])) {
     $userID = $_SESSION["userID"];
     // Retrieve user data from the database based on the user ID
     $query = "SELECT * FROM commande WHERE id_client = $userID";
     $result = mysqli_query($conn, $query);
-    
+
     // Check if the query was successful and if there is any data returned
-    if($result && mysqli_num_rows($result) > 0) {
+    if ($result && mysqli_num_rows($result) > 0) {
         $purchase_history = array();
-        while($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             // Store the purchase history information in an array
             $purchase_history[] = $row;
+            // Retrieve payment information for each order
+            $commande_id = $row['id_commande'];
+            $query2 = "SELECT paid FROM payment WHERE id_commande = '$commande_id'";
+            $result2 = mysqli_query($conn, $query2);
+            if ($result2 && mysqli_num_rows($result2) > 0) {
+                $payment_info = mysqli_fetch_assoc($result2);
+                $purchase_history[count($purchase_history) - 1]['paid'] = $payment_info['paid'];
+            } else {
+                // No payment information found for this order
+                $purchase_history[count($purchase_history) - 1]['paid'] = 'Not available';
+            }
         }
     } else {
         // No purchase history found
@@ -72,6 +84,28 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
 } else {
     // User not logged in or session data not set
     $purchase_history = array();
+}
+
+// Check if cancel button is clicked
+if(isset($_POST['cancel'])) {
+    $orderId = $_POST['order_id'];
+    // Update the state of the order to "canceled" in the database
+    $query = "UPDATE commande SET State = 'canceled' WHERE id_commande = $orderId";
+    $result = mysqli_query($conn, $query);
+    if($result) {
+        echo "<script>alert('Order canceled successfully!'); window.location.href = window.location.href;</script>";
+    } else {
+        echo "<script>alert('Failed to cancel order.');</script>";
+    }
+}
+else if (isset($_POST['pay'])) {
+    $orderId = $_POST['order_id'];
+    $_SESSION["lastInsertedProductID"]=$orderId;
+    sleep(2);
+    header("Location: payment.php");
+    exit();
+
+
 }
 ?>
 
@@ -131,29 +165,6 @@ if (isset($_POST["update"])) {
 }
 
 
-if (isset($_POST['confirm_delete']) && $_POST['confirm_delete'] == '1') {
-    if (isset($_SESSION["userID"])) {
-        $userID = $_SESSION["userID"];
-        // Prepare the delete statement
-        $query = "DELETE FROM client WHERE id = $userID";
-        $result = mysqli_query($conn, $query);
-
-        // Check if the deletion was successful
-        if ($result) {
-            echo "<script>alert('Account deleted successfully!');</script>";
-            unset($_SESSION["userID"]);
-            sleep(2);
-            header("Location: index.html");
-            exit();
-        } else {
-            echo "<script>alert('Failed to delete the account.');</script>";
-        }
-    } else {
-        echo "<script>alert('User ID not found.');</script>";
-    }
-}
-
-mysqli_close($conn);
 ?>
 
 
@@ -170,6 +181,7 @@ mysqli_close($conn);
   <title>Flowers shop - catalogue</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="profil.css">
+  
 </head>
 <body>
     <header>
@@ -242,15 +254,72 @@ mysqli_close($conn);
                     <input type="text" class="input" value="<?php echo $item['prix']; ?>">
                     <h2>Purchase Date</h2>
                     <input type="text" class="input" value="<?php echo $item['date']; ?>">
+                    <?php if ($item['nom_produit'] == 'customized product') : ?>
+                    <h2>Your selection</h2>
+                    <input type="text" class="input" value="<?php echo $item['perso_data']; ?>">
+                    <?php endif; ?>
+                    <div style="display: flex";>
+
+                    <div style="width: 350px";>
                     <h2>Order ID</h2>
                     <input type="text" class="input" value="<?php echo $item['id_commande']; ?>">
+                    </div>
+                    <div style="width: 300px";>
+                    <h2>State</h2>
+                    <div style="display: flex";>
+                    <div>
+                        <?php if (($item['paid'] == 'NO') && ($item['State']!='canceled')): ?>
+                            <input type="text" class="input" value="Not Paid" style="color: red ; font-weight: bold;">
+                             <div style="display: flex";>
+                                <form method="post">
+                                    <input type="hidden" name="order_id" value="<?php echo $item['id_commande']; ?>">
+                                    <button type="submit" name="cancel" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Cancel</button>
+                                    <button type ="submit" name="pay" style="background-color: green; color: white; border: none; padding: 5px 10px; cursor: pointer;">Pay</button>
+
+                                </form>
+                             </div>
+                        
+                        <?php else: ?>
+                            <?php 
+                                $state = $item['State'];
+                                $color = '';
+                                switch ($state) {
+                                    case 'delivered':
+                                    case 'picked':
+                                        $color = 'green';
+                                        break;
+                                    case 'In Progress':
+                                    case 'ready to be picked':
+                                        $color = 'orange';
+                                        break;
+                                    case 'canceled':
+                                        $color = 'red';
+                                        break;
+                                    default:
+                                        $color = 'black'; // You can set default color here
+                                        break;
+                                }
+                            ?>
+                            <input type="text" class="input" value="<?php echo $state; ?>" style="color: <?php echo $color; ?>; font-weight: bold;">
+                            <?php if ($state !== 'delivered' && $state !== 'picked' && $state !== 'canceled'): ?>
+                                <form method="post">
+                                    <input type="hidden" name="order_id" value="<?php echo $item['id_commande']; ?>">
+                                    <button type="submit" name="cancel" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">Cancel</button>
+                                </form>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                    </div>
+                </div>
+                
+                </div>
+                
                     <?php if ($index > 0): ?>
                         <button class="btn" onclick="tabs(<?php echo $counter - 1; ?>)">Previous</button>
                     <?php endif; ?>
                     <?php if (isset($purchase_history[$index + 1])): ?>
                         <button class="btn" onclick="tabs(<?php echo $counter +1; ; ?>)">Next</button>
-                    <?php else: ?>
-                        <h3 style="color: brown";>Thats all ,No more purchases</h3>
+                
                     <?php endif; ?>
                 </div>
                 <?php $counter++; ?>
@@ -284,9 +353,8 @@ mysqli_close($conn);
                 
                 <!-- Delete Account Button -->
                 <button class="btn" type="submit" name="update" style="margin-left: 170px;" onclick="reload()">Update</button>
-                <br>
-                <button class="btn2" type="button" onclick="confirmDelete()">Delete account</button>
-                <input type="hidden" name="confirm_delete" id="confirmDeleteInput" value="0">
+                
+            
 
                 <!-- Update Button -->
             
@@ -381,8 +449,6 @@ mysqli_close($conn);
 
 
 
- 
-  
 
 
 
@@ -450,18 +516,7 @@ function togglePasswordVisibility2() {
   }
 }
 </script>
-<script type="text/javascript">
-function confirmDelete() {
-    var confirmation = confirm("Are you sure you want to delete your account?");
-    if (confirmation) {
-        document.getElementById("confirmDeleteInput").value = "1"; // Set confirm_delete flag to 1
-        document.getElementById("update_form").submit(); // Submit the update form
-        sessionStorage.removeItem("logedin");
-    } else {
-        document.getElementById("confirmDeleteInput").value = "0"; // Set confirm_delete flag to 0
-    }
-}
-</script>
+
     <script>
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
