@@ -38,7 +38,7 @@ body {
   /* rules for the header */
   
   .header {
-    background-color: #bb6b6b;
+    background-color: #1d1d1d;
     color: #ffffff;
     height: 60px;
     padding: 20px ;
@@ -157,26 +157,6 @@ body {
     margin: 1rem auto;
   }
   
-  .color-picker {
-    display: inline-block;
-    margin: 1rem 1rem 0.2rem 0;
-    font-size: 1.2rem;
-  }
-  
-  .color-ball {
-    display: inline-block;
-    width: 1.7rem;
-    height: 1.7rem;
-    border-radius: 50%;
-    margin: 1rem 0.4rem 0.2rem 0.4rem;
-    cursor: pointer;
-  }
-  
-  .color-ball1 { background-color: #9b1844;}
-  .color-ball2 { background-color: #d8055a; }
-  .color-ball3 { background-color: #ffacc7; }
-  .color-ball4 { background-color: yellow; }
-  
   .delivery {
     display: inline-block;
     margin: 1.5rem auto 0.2rem 2rem;
@@ -190,10 +170,17 @@ body {
   
   .checkmark {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    font-size: 0.7rem;
+    padding: 0.1rem;
+    color: rgba(233, 230, 230, 0.479);
     border: 1px solid #55bf00;
-    margin-right: 0.5rem;
+    border-radius: 0.1rem;
+    cursor: pointer;
+  }
+
+  .event1 .checkmark,
+  .for-whom1 .checkmark {
+    color: black;
   }
   
   .checkmark2 {
@@ -213,7 +200,8 @@ body {
   
   .total .price {
     font-size: 1.5rem;
-    margin-top: 200px;
+    margin-top: 350px;
+  
   }
   
   .buy-btn {
@@ -221,10 +209,23 @@ body {
     color: white;
     background: #d8055a;
     padding: 0.7rem 3rem;
+    font-size: 17px;
     cursor: pointer;
     border-radius: 2rem;
     margin: 0 0 1rem 2rem;
-    margin-top: 50px;
+    margin-top: 20px;
+  }
+  .cart-btn {
+    display: inline-block;
+    color: white;
+    background: #d8055a;
+    padding: 0.7rem 3rem;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 2rem;
+    margin: 0 0 1rem 2rem;
+    margin-top: 20px;
+
   }
   
   .related-products {
@@ -346,7 +347,7 @@ body {
   }
   
   .line input[type="radio"]:checked + label {
-    border: 2px solid #55bf00;
+    border: 2px solid #16bf00;
   }
 
   .quantity {
@@ -551,26 +552,21 @@ body {
   
   
   /* copyright section end */
-  
+
   .stepper{
-    position: absolute;
-    transform: translate(-10%,-80%);
-    top: 42%;
-    left: 1520px;
+   
+    
     display: flex;
+    height: 35px;
+    margin-top: 10px;
     background-color: #ffffff;
     border-radius: 45px;
-    height: 35px;
+    
    
  
     
 }
-.quantity2 span{
-  display: flex;
-  margin-left: 300px;
-  margin-top: -75px;
-  
-}
+
 input[type="number"]{
     width: 50px;
     text-align: center;
@@ -592,10 +588,10 @@ input::-webkit-inner-spin-button{
     cursor: pointer;
 }
 #decrement{
-    padding: 6px 5px 15px 20px;
+    padding: 3px 15px 15px 20px;
     border-radius: 45px 0 0 45px;
 }
 #increment{
-    padding: 5px 20px 10px 5px;
+    padding: 3px 20px 10px 15px;
     border-radius: 0 45px 45px 0;
 }
