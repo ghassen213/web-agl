@@ -56,11 +56,11 @@ $jsDataByCategory = json_encode($dataByCategory);
     <div class="header">
       <div class="header-left">
         <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
-        <span><a href="index.html">Flora Boutique</span>
+        <span><a href="index.html">Flora Boutique</a></span>
       </div>
       
       <div class="header-right">
-        <a id="signupButton" href="signUp.html" class="button">
+        <a id="signupButton"  class="button" onclick="return sign()">
           Customize</a>
       </div>
     </div>
@@ -97,43 +97,26 @@ $jsDataByCategory = json_encode($dataByCategory);
       <div class="slider-container">
         <div class="spacer"></div>
       <span>Price</span>
-        <input type="range" id="priceSlider" min="20" max="150" value="20">
-        <span id="priceValue">$20</span>
+        <input type="range" id="priceSlider" min="30" max="150" value="30">
+        <span id="priceValue">$30</span>
       </div>
-      <div class="spacer"></div>
-      <span>Color</span>
-      <div class="color-picker">
-        <div class="color-container">
-          <div class="color color1" id="1" onclick="selectColor(this)"> &nbsp;</div>
-        </div>
-        <div class="color-container">
-          <div class="color color2" id="2" onclick="selectColor(this)"> &nbsp;</div>
-        </div>
-        <div class="color-container">
-          <div class="color color3" id="3" onclick="selectColor(this)"> &nbsp;</div>
-        </div>
-        <div class="color-container">
-          <div class="color color4" id="4" onclick="selectColor(this)">&nbsp;</div>
-        </div>
-        <div class="color-container">
-          <div class="color color5" id="5" onclick="selectColor(this)">&nbsp;</div>
-        </div>
-      </div>
+      
+
       
       <div class="section1">
         <div class="spacer"></div>
-          <span>Event</span>
+          <span>Category</span>
           <div class="for-whom">
-            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <div class="checkmark" onclick="changeClass(this)"><i class="fa fa-check" ></i></div>
             <span >Anniversary</span>
           </div>
           
           <div class="for-whom">
-            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <div class="checkmark" onclick="changeClass(this)"><i class="fa fa-check" ></i></div>
             <span >Birthday</span>
           </div>
           <div class="for-whom ">
-            <div class="checkmark" onclick="changeClass(this, 'section1')"><i class="fa fa-check" ></i></div>
+            <div class="checkmark" onclick="changeClass(this)"><i class="fa fa-check" ></i></div>
             <span >valentin's Day</span>
           </div>
           <div>
@@ -142,30 +125,7 @@ $jsDataByCategory = json_encode($dataByCategory);
           </div>
           
         </div>
-        <div class="section2">
-          <div class="spacer"></div>
-            <span>For Whom</span>
-            <div class="for-whom">
-              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
-              <span >Spouse</span> 
-            </div>
-            <div class="for-whom">
-              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
-              <span >Girlfriend</span>
-            </div>
-            <div class="for-whom">
-              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
-              <span >Mother</span>
-            </div>
-            <div class="for-whom ">
-              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
-              <span >Daughter</span>
-            </div>
-            <div class="for-whom">
-              <div class="checkmark" onclick="changeClass(this, 'section2')"><i class="fa fa-check" ></i></div>
-              <span >Friend</span>
-            </div>
-        </div>
+        
       
       <div class="show-btn">Show results</div>
     </div>
@@ -237,15 +197,16 @@ function storeProductData(name, price, imgSrc) {
   
   
   const resultsData2 = [
-    { name: names['anniversaire'].names[0], imgSrc: names['anniversaire'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['anniversaire'].price[0] },
-    { name: names['anniversaire'].names[1], imgSrc: names['anniversaire'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['anniversaire'].price[1] },
-    { name: names['anniversaire'].names[2], imgSrc: names['anniversaire'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['anniversaire'].price[2] },
-    { name: names['anniversaire'].names[3], imgSrc: names['anniversaire'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['anniversaire'].price[3] },
-    { name: names['anniversaire'].names[4], imgSrc: names['anniversaire'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price: "$" + names['anniversaire'].price[4] },
-    { name: names['anniversaire'].names[5], imgSrc: names['anniversaire'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price: "$" + names['anniversaire'].price[5] }
+    { name: names['anniversaire'].names[0], imgSrc: names['anniversaire'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['anniversaire'].price[0], state: names['anniversaire'].state[0] },
+    { name: names['anniversaire'].names[1], imgSrc: names['anniversaire'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['anniversaire'].price[1] , state: names['anniversaire'].state[1] },
+    { name: names['anniversaire'].names[2], imgSrc: names['anniversaire'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['anniversaire'].price[2], state: names['anniversaire'].state[2] },
+    { name: names['anniversaire'].names[3], imgSrc: names['anniversaire'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['anniversaire'].price[3] , state: names['anniversaire'].state[3] },
+    { name: names['anniversaire'].names[4], imgSrc: names['anniversaire'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price: "$" + names['anniversaire'].price[4] , state: names['anniversaire'].state[4]},
+    { name: names['anniversaire'].names[5], imgSrc: names['anniversaire'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price: "$" + names['anniversaire'].price[5] , state: names['anniversaire'].state[5]}
   ];
 
   function generateResultHTML(result, index) {
+    var color = result.state === 'on stock' ? 'green' : 'red';
   return `
     <div class="result result${index + 1}">
       <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
@@ -256,12 +217,8 @@ function storeProductData(name, price, imgSrc) {
       </div>
    
         <span>${result.name}</span>
-        <form class="quantity">
-          <input type="radio" id="${result.quantityId}" name="quantity" checked><label for="${result.quantityId}">9 unt.</label>
-          <input type="radio" id="${result.quantityId + 1}" name="quantity"><label for="${result.quantityId + 1}">15 unt.</label>
-          <input type="radio" id="${result.quantityId + 2}" name="quantity"><label for="${result.quantityId + 2}">21 unt.</label>
-        </form>
         <span class="price-span">${result.price} <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+        <span class="price-span" style="color: ${color}; font-size:22px;">${result.state}</span>
    
     </div>
   `;
@@ -276,7 +233,7 @@ function storeProductData(name, price, imgSrc) {
     imgSrc: imgSrc
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
-  console.log("Product data stored in session storage:", productData);
+
 }
 
   const resultsContainer2 = document.getElementById('results-container2');
@@ -295,15 +252,16 @@ function storeProductData(name, price, imgSrc) {
   var names = <?php echo $jsDataByCategory; ?>;
   
   const resultsData3 = [
-    { name: names['mariage'].names[0], imgSrc: names['mariage'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['mariage'].price[0] },
-    { name: names['mariage'].names[1], imgSrc: names['mariage'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['mariage'].price[1] },
-    { name: names['mariage'].names[2], imgSrc: names['mariage'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['mariage'].price[2] },
-    { name: names['mariage'].names[3], imgSrc: names['mariage'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['mariage'].price[3] },
-    { name: names['mariage'].names[4], imgSrc: names['mariage'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price:  "$" + names['mariage'].price[4] },
-    { name: names['mariage'].names[5], imgSrc: names['mariage'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price:  "$" + names['mariage'].price[5] }
+    { name: names['mariage'].names[0], imgSrc: names['mariage'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['mariage'].price[0] , state: names['mariage'].state[0] },
+    { name: names['mariage'].names[1], imgSrc: names['mariage'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['mariage'].price[1]  , state: names['mariage'].state[1]},
+    { name: names['mariage'].names[2], imgSrc: names['mariage'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['mariage'].price[2] , state: names['mariage'].state[2] },
+    { name: names['mariage'].names[3], imgSrc: names['mariage'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['mariage'].price[3]  , state: names['mariage'].state[3]},
+    { name: names['mariage'].names[4], imgSrc: names['mariage'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price:  "$" + names['mariage'].price[4]  , state: names['mariage'].state[4]},
+    { name: names['mariage'].names[5], imgSrc: names['mariage'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price:  "$" + names['mariage'].price[5]  , state: names['mariage'].state[5]}
   ];
 
   function generateResultHTML(result, index) {
+    var color = result.state === 'on stock' ? 'green' : 'red';
     return `
       <div class="result result${index + 1}">
         <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
@@ -314,6 +272,7 @@ function storeProductData(name, price, imgSrc) {
         </div>
         <span>${result.name}</span>
         <span class="price-span">${result.price} <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+        <span class="price-span" style="color: ${color}; font-size:22px;">${result.state}</span>
       </div>
     `;
   }
@@ -325,7 +284,7 @@ function storeProductData(name, price, imgSrc) {
     imgSrc: imgSrc
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
-  console.log("Product data stored in session storage:", productData);
+
 }
 
   const resultsContainer3 = document.getElementById('results-container3');
@@ -341,15 +300,16 @@ function storeProductData(name, price, imgSrc) {
 
   
       const resultsData4 = [
-    { name: names['valentine'].names[0], imgSrc: names['valentine'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['valentine'].price[0] },
-    { name: names['valentine'].names[1], imgSrc: names['valentine'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['valentine'].price[1] },
-    { name: names['valentine'].names[2], imgSrc: names['valentine'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['valentine'].price[2] },
-    { name: names['valentine'].names[3], imgSrc: names['valentine'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['valentine'].price[3] },
-    { name: names['valentine'].names[4], imgSrc: names['valentine'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price: "$" + names['valentine'].price[4] },
-    { name: names['valentine'].names[5], imgSrc: names['valentine'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price: "$" + names['valentine'].price[5] }
+    { name: names['valentine'].names[0], imgSrc: names['valentine'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['valentine'].price[0] , state: names['valentine'].state[0]  },
+    { name: names['valentine'].names[1], imgSrc: names['valentine'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['valentine'].price[1] , state: names['valentine'].state[1]},
+    { name: names['valentine'].names[2], imgSrc: names['valentine'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['valentine'].price[2] , state: names['valentine'].state[2]},
+    { name: names['valentine'].names[3], imgSrc: names['valentine'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['valentine'].price[3] , state: names['valentine'].state[3]},
+    { name: names['valentine'].names[4], imgSrc: names['valentine'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price: "$" + names['valentine'].price[4] , state: names['valentine'].state[4]},
+    { name: names['valentine'].names[5], imgSrc: names['valentine'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price: "$" + names['valentine'].price[5] , state: names['valentine'].state[5]}
 ];
 
   function generateResultHTML(result, index) {
+    var color = result.state === 'on stock' ? 'green' : 'red';
     return `
       <div class="result result${index + 1}">
         <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
@@ -360,6 +320,7 @@ function storeProductData(name, price, imgSrc) {
         </div>
         <span>${result.name}</span>
         <span class="price-span">${result.price} <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+        <span class="price-span" style="color: ${color}; font-size:22px;">${result.state}</span>
       </div>
     `;
   }
@@ -371,7 +332,7 @@ function storeProductData(name, price, imgSrc) {
     imgSrc: imgSrc
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
-  console.log("Product data stored in session storage:", productData);
+ 
 }
 
   const resultsContainer4 = document.getElementById('results-container4');
