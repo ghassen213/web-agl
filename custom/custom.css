@@ -1,0 +1,379 @@
+/*******HEDHA TEBA3 SLIDE Dakhlouch ba3dhou ken bch tbadel la tehlek el animation**********/
+.btn button, .buy-btn ,.cart-btn {
+  padding: 8px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid rgb(32, 219, 204);
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  border-radius: 25px;
+  transition: 0.1s;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  background-color: rgba(216, 241, 241, 0.514);
+}
+.btn{
+  display: flex;
+  gap: 20px;
+}
+
+button:hover{
+  transform: scale(1.05);
+}
+
+.container{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.pages {
+  display: flex;
+	width: 600%;
+	box-sizing: border-box;	
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+	gap: 200px;
+  transition: all 0.7s;
+  color: white;
+}
+.five {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	gap: 40px;
+  transition: all 0.7s;
+  color: white;
+}
+.six {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  gap: 140px;
+}
+/***********************************************************/
+
+
+
+
+
+
+
+
+
+/**********hedha code mta nafes el page postcard li gaditha bch yetbadel**************/
+body {
+  height: 850px;
+ background: url('images/postcardbg3.jpg'); 
+ background-size: cover; /* Pour couvrir toute la zone d'affichage */
+ background-repeat: no-repeat; /* Pour éviter la répétition de l'image */
+ 
+}
+
+
+
+h1 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.title {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.title h1,p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: rgba(12, 12, 12, 0.795);
+  margin: 0;
+}
+
+
+.choix-thematique ul {
+  list-style: none;
+  padding: 0;
+
+ 
+
+}
+.choix-thematique ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+.choix-thematique ul li a {
+  display: block;
+}
+
+.choix-thematique ul li img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.choix-thematique ul li span{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 22px;
+ 
+ 
+
+}
+
+
+
+
+
+.point{
+  position: absolute;
+  top: 10px; 
+  left: 150px;
+  width : 27px; 
+  height : 27px; 
+  background-Color : pink; 
+  border-radius: 50%;
+}
+.point2 {
+    position: relative;
+    top: 10px;
+    left: 150px;
+    width: 27px; 
+    height: 27px; 
+    background-color: pink; 
+    border-radius: 50%;
+}
+
+#img {
+  position: relative;
+  border-radius: 50%;
+}
+.color-option {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            
+}
+.formulaire {
+  padding: 20px;
+}
+.formulaire input[type="text"] {
+  height: 30px;
+}
+
+.formulaire input[type="text"], .formulaire textarea {
+  width: 550px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  margin-left: 20px;
+  resize: none;
+  border-radius: 20px;
+  box-shadow: black ;
+  
+}
+input:focus,textarea:focus{
+  color: turquoise;
+  background-color: white;
+  outline-color: turquoise;
+  box-shadow: -2px -2px 15px turquoise;
+  transition: .1s ;
+  transition-property: border;
+
+}
+::placeholder{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+}
+
+
+
+
+.choix-thematique2 ul {
+  list-style: none;
+  padding: 0;
+
+
+}
+.choix-thematique2 ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+.choix-thematique2 ul li a {
+  display: block;
+}
+
+.choix-thematique2 ul li img {
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+  border-radius: 50%;
+}
+
+.title2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+
+}
+.title2 h1,p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: rgba(12, 12, 12, 0.795);
+  margin: 0;
+}
+
+
+.order{
+  display: grid;
+  font-size: 35px;
+  color: black;
+  width: 1100px;
+  height: auto;
+  
+  
+
+}
+        
+
+
+
+
+
+.stepper{
+   
+    
+  display: flex;
+  height: 35px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  border-radius: 45px;
+  
+ 
+
+  
+}
+
+input[type="number"]{
+  width: 50px;
+  text-align: center;
+  font-size: 20px;
+  border: none;
+  background-color: #ffffff;
+  color: #202030;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+.stepper button{
+  color: #3264fe;
+  background-color: #ffffff;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+#decrement{
+  padding: 3px 15px 15px 20px;
+  border-radius: 45px 0 0 45px;
+}
+#increment{
+  padding: 3px 20px 10px 15px;
+  border-radius: 0 45px 45px 0;
+}
+
+.delivery {
+  display: inline-block;
+  margin: 1.5rem auto 0.2rem 2rem;
+  font-size: 1.2rem;
+}
+
+.delivery span {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.delivery-option {
+  display: inline-block;
+  height: 1rem;
+}
+
+.other-options {
+  display: grid;
+  margin: 1rem auto;
+ 
+}
+
+
+
+.product-info {
+  display: flex;
+  color: black;
+  border: 1px solid whitesmoke;
+  background-color: rgba(250, 242, 242, 0.534);
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  padding: 10px;
+}
+
+.line label, .quantity label {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7vw 0.3rem 0.5vw;
+  border: 1px solid lightgray;
+  border-radius: 1rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.line input[type="radio"] {
+  display: none;
+
+  
+}
+
+.line input[type="radio"]:checked + label {
+  border: 2px solid #16bf00;
+ 
+}
+
+.quantity {
+  margin: 0.3rem 1rem 0.3rem 1rem;
+ 
+}
+
+
+.size-options {
+  font-size: 0.8rem;
+  margin: 0 auto;
+}
+  
