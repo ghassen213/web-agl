@@ -101,7 +101,20 @@ $conn->close();
 // Output the count of inserts and updates
 
 ?>
+<?php
+include("database.php");
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user']) && isset($_POST['user_email'])) {
+    // Check if email is provided
+    $email = $_POST['user_email'];
+
+    // Prepare a DELETE statement
+    $sql = "DELETE FROM client WHERE email = '$email' ";
+    
+    // Prepare the statement
+    $result = mysqli_query($conn, $sql);
+}
+?>
 
 
 
@@ -373,52 +386,42 @@ $conn->close();
                     <th style="padding-bottom: 10px;">Delete</th>
                 </thead>
                 <tbody>
-                    <?php
-                    include("database.php");
-                
+    <?php
+    include("database.php");
 
-                    
-                    $sql = "SELECT * FROM client";
-                    $result = mysqli_query($conn, $sql);
-                    
+    $sql = "SELECT * FROM client";
+    $result = mysqli_query($conn, $sql);
 
-                    // Check if there are any users
-                    if ($result->num_rows > 0) {
-                        // Output data of each row
-                        while ($row = $result->fetch_assoc()) {
-                    
+    // Check if there are any users
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            // Output the user details as table rows
+            echo "<tr>";
+            echo "<td>" . $row['nom'] . "</td>";
+            echo "<td>" . $row['prenom'] . "</td>";
+            echo "<td>" . $row['email'] . "</td>";
+            echo "<td>";
+            echo "<form method='post'>";
+            echo "<input type='hidden' name='user_email' value='" . $row['email'] . "'>";
+            echo "<button type='submit' name='delete_user'>Delete</button>";
+            echo "</form>";
+            echo "</td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='4'>No users found</td></tr>";
+    }
 
-                            // Output the user details as table rows
-                            echo "<tr>";
-                            echo "<td>" . $row['nom'] . "</td>";
-                            echo "<td>" . $row['prenom'] . "</td>";
-                            echo "<td>" . $row['email'] . "</td>";
-                            echo "<td><button onclick=\"deleteUser(this)\">Delete</button></td>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='4'>No users found</td></tr>";
-                    }
-
-                    // Close the database connection
-                    $conn->close();
-                    ?>
-                </tbody>
+    // Close the database connection
+    $conn->close();
+    ?>
+</tbody>
             </table>
         </div>
     </main>
 
- <script>
-    // Function to delete a user row
-    function deleteUser(button) {
-        if (confirm("Are you sure you want to delete this user?")) {
-            // Find the closest <tr> element (the row containing the button)
-            var row = button.closest('tr');
-            // Remove the row from the table
-            row.remove();
-        }
-    }
-</script>
+
 <script>
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
