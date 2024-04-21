@@ -13,9 +13,9 @@ priceValue.textContent = '$' + priceSlider.value;
 
 
 //******** function ki tnnzel 3al les case li ta7et couleur trodhom checked *********//
-function changeClass(element, section) {
-  var sectionDiv = document.querySelector('.' + section);
-  var allForWhom = sectionDiv.querySelectorAll('.for-whom');
+function changeClass(element) {
+  
+  var allForWhom = document.querySelectorAll('.for-whom');
   for (var i = 0; i < allForWhom.length; i++) {
     allForWhom[i].classList.remove('for-whom1');
   }
@@ -37,20 +37,7 @@ function changeClass2(element) {
   }
 }
 
-//******** function bch tchecki beha el colors *********//
-function selectColor(element) {
-  var colors = document.querySelectorAll('.color');
-  for (var i = 0; i < colors.length; i++) {
-    colors[i].innerHTML = '&nbsp;';
-   
-  }
-  var checkmark = document.createElement('i');
-  checkmark.classList.add('fa', 'fa-check');
-  element.appendChild(checkmark);
 
- 
-
-}
 
 
 //********** hedhi lezem nfasarha  ************//
@@ -117,3 +104,16 @@ options.forEach((option) => {
    
   });
 });
+
+
+function sign() {
+  let logedin = JSON.parse(sessionStorage.getItem("logedin"));
+  if (!logedin || logedin.value !== "yes") {
+    window.location.href = "SignIn.php";
+    
+  }
+  else{
+    window.location.href = "custom.php";
+
+  }
+}
