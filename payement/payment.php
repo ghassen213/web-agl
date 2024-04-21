@@ -112,25 +112,31 @@ if (isset($_POST['submit'])) {
     $zipcode = $_POST['zipcode'];
     $cvv = $_POST['cvv'];
     $userID = $_SESSION["userID"];
+    $last_id = $_SESSION["lastInsertedProductID"];
 
-    $checkCardQuery = "SELECT * FROM carte WHERE numcard = '$numcard' AND id ='$userID' ";
+    $checkCardQuery = "SELECT numcard FROM carte WHERE numcard = '$numcard' ";
     $result = mysqli_query($conn, $checkCardQuery);
     if (mysqli_num_rows($result) > 0) {
+        echo "Card exists";
         // Email already exists, display error message
-        sleep(2);
-        header("Location: postcard.html");
-        exit();
-    }else {
-        $sql = "INSERT INTO carte (numcard, date_exp, adresse, zipcode, cvv, id) VALUES ('$numcard', '$date_exp', '$adresse', '$zipcode', '$cvv', '$userID')";
-        if (mysqli_query($conn, $sql)) {  
+        $sql1 = "UPDATE payment SET paid = 'Yes', numcarte='$numcard' WHERE id_commande = '$last_id'";
+        if (mysqli_query($conn, $sql1)) {  
             mysqli_close($conn);
             sleep(2);
-            header("Location: postcard.html");
+            header("Location: postcard.php");
             exit();
-        } else {
-            // Handle error
-            echo "Error: ";
         }
+    }else {
+        $sql = "INSERT INTO carte (numcard, date_exp, adresse, zipcode, cvv, id) VALUES ('$numcard', '$date_exp', '$adresse', '$zipcode', '$cvv', '$userID')";
+        if (mysqli_query($conn, $sql)) {
+            // Update payment table to mark the payment as paid
+            $sql1 = "UPDATE payment SET paid = 'Yes', numcarte='$numcard' WHERE id_commande = '$last_id'";
+            if (mysqli_query($conn, $sql1)) {
+                mysqli_close($conn);
+                sleep(2);
+                header("Location: postcard.php");
+                exit();
+            }}   
     }
 }    
 
