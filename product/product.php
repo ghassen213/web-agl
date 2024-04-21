@@ -1,24 +1,26 @@
 <?php
 session_start();
 
-include ("database.php");
+include("database.php");
 
-if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SESSION["userID"])) {
+if (isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SESSION["userID"])) {
   $userID = $_SESSION["userID"];
 
-  if (isset($_POST['submit'])) {
+  if (isset($_POST['buy'])) {
     // Retrieve data from form
     $product_title = $_POST['product_title'];
     $product_price = $_POST['product_price'];
     $product_size = $_POST['product_size'];
     $product_quantity = $_POST['product_quantity'];
+    $product_delivery = $_POST['product_delivery'];
 
-    // Prepare and execute SQL query to insert product
-    $sql_insert = "INSERT INTO commande (nom_produit, size, prix, quantity, id_client) VALUES ('$product_title', '$product_size', '$product_price', '$product_quantity' , $userID)";
-
+    // Prepare and execute SQL query to insert product into 'commande' table
+    $sql_insert = "INSERT INTO commande (nom_produit, size, prix, quantity, Delivery, State, id_client) VALUES ('$product_title', '$product_size', '$product_price', '$product_quantity' , '$product_delivery', 'In Progress', $userID)";
     if (mysqli_query($conn, $sql_insert)) {  
       // Get the ID of the inserted product
       $last_id = mysqli_insert_id($conn);
+      $sql1 = "INSERT INTO payment (id_commande ,paid) VALUES ('$last_id','NO')";
+      mysqli_query($conn, $sql1);
 
       // Store the ID in a session variable
       $_SESSION["lastInsertedProductID"] = $last_id;
@@ -27,7 +29,22 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
       sleep(2);
       header("Location: payment.php");
       exit();
-  
+    } else {
+      // Handle error
+      echo "Error: ";
+    }
+  } elseif (isset($_POST['addToCart'])) {
+    // Retrieve data from form
+    $product_title = $_POST['product_title'];
+    $product_price = $_POST['product_price'];
+    $product_size = $_POST['product_size'];
+    $product_quantity = $_POST['product_quantity'];
+    $product_delivery = $_POST['product_delivery'];
+
+    // Prepare and execute SQL query to insert product into 'payment' table
+    $sql_insert = "INSERT INTO panier (nom_produit , size, prix, quantity, Delivery, id_client) VALUES ('$product_title', '$product_size', '$product_price', '$product_quantity' , '$product_delivery',  $userID)";
+    if (mysqli_query($conn, $sql_insert)) {  
+      echo "<script>alert('Item Added successfully!'); window.location.href = window.location.href;</script>";
     } else {
       // Handle error
       echo "Error: ";
@@ -35,7 +52,6 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
   }
 }
 ?>
-
 
 
 <!DOCTYPE html>
@@ -57,7 +73,8 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
     <div class="header">
       <div class="header-left">
         <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
-        <span>Boutique Name</span>
+        <span><a href="index.html">Flora Boutique</a></span>
+        
       </div>
     </div>
   </header>
@@ -86,49 +103,42 @@ if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SES
           </form>
         </div>
         <div class="other-options line">
-          <div class="color-picker">
-            <span>Color:</span>
-            <div class="balls">
-              <div class="color-ball color-ball1"></div>
-              <div class="color-ball color-ball2"></div>
-              <div class="color-ball color-ball3"></div>
-              <div class="color-ball color-ball4"></div>
-            </div>
-          </div>
           <div class="delivery">
-            <span>Delivery:</span>
-            <div class="delivery-options">
-              <div class="options-line">
-                <div class="checkmark1 checkmark"></div>
-                <div class="delivery-option">By courier</div>
-                <div class="checkmark2 checkmark"></div>
-                <div class="delivery-option">Pick up</div>
-              </div>
-          </div>
-         
-          <div class="quantity2">
-            <span>Quantity:</span>
+          <span>Quantity:</span>
             <div class="stepper">
               <button id="decrement" onclick="stepper(this)"> - </button>
               <input type="number" min="0" max="20" step="1" value="1" id="my-input" readonly>
               <button id="increment" onclick="stepper(this)"> + </button>
+            </div>
           </div>
-          </div>
+          <div class="delivery">
+        <span>Delivery:</span>
+        <div class="delivery-options">
+        <div class="quantity ">
+          <input type="radio" id="q5" name="quantity" checked  ><label for="q5" >By courier</label>
+          <input type="radio" id="q6" name="quantity"><label for="q6">Pick up</label>
+      
         </div>
+    </div>
+</div>
+
         </div>
         <div class="total line">
           <span>Price:</span>
           <span class="price"> </span>
           <form id="buy-form" action="" method="post" onsubmit="return sign()">
-            <input type="hidden" id="product-title" name="product_title">
-            <input type="hidden" id="product-size" name="product_size">
-            <input type="hidden" id="product-quantity" name="product_quantity">
-            <input type="hidden" id="product-price" name="product_price">
-            <input type="submit" class="buy-btn" value="Buy" name="submit"  />
-          </form>
+          <input type="hidden" id="product-title" name="product_title">
+          <input type="hidden" id="product-size" name="product_size">
+          <input type="hidden" id="product-quantity" name="product_quantity">
+          <input type="hidden" id="product-price" name="product_price">
+          <input type="hidden" id="product-delivery" name="product_delivery">
+          <input type="submit" class="cart-btn" value="Add to Cart" name="addToCart">
+          <input type="submit" class="buy-btn" value="Buy" name="buy">
+        </form>
         </div>
       </div>
     </div>
+    
 
     <!-- related products section -->
 
