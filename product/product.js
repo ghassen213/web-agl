@@ -1,18 +1,25 @@
 //**********te5ou les champs info mta el produit w t3abehom (lezem nfasarha)************//
 
-document.querySelector('.buy-btn').addEventListener('click', function(event) {
-
+document.addEventListener('DOMContentLoaded', function() {
+  function updateProductDetails() {
   var title = document.querySelector('.product-title h1').innerText;
   var price = document.querySelector('.price ').innerText;
   var size = document.querySelector('.size-options input[name="quantity"]:checked').nextElementSibling.innerText;
   var quantity = document.getElementById('my-input').value;
+  var delivery = document.querySelector('.delivery-options input[name="quantity"]:checked').nextElementSibling.innerText;
+
 
 
   document.getElementById('product-title').value = title;
   document.getElementById('product-price').value = price;
   document.getElementById('product-size').value = size;
   document.getElementById('product-quantity').value = quantity;
-  console.log(price);
+  document.getElementById('product-delivery').value = delivery;
+  }
+
+  document.querySelector('.buy-btn').addEventListener('click', updateProductDetails);
+  document.querySelector('.cart-btn').addEventListener('click', updateProductDetails);
+
  
 });
 
@@ -63,4 +70,16 @@ function sign() {
     return false; // Prevent form submission
   }
   return true; // Allow form submission
+}
+
+
+
+
+
+function changeClass(element) {
+  var allForWhom = sectionDiv.querySelectorAll('.for-whom');
+  for (var i = 0; i < allForWhom.length; i++) {
+    allForWhom[i].classList.remove('for-whom1');
+  }
+  element.parentElement.classList.add('for-whom1');
 }
