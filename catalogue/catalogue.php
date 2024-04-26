@@ -55,7 +55,7 @@ $jsDataByCategory = json_encode($dataByCategory);
   <header>
     <div class="header">
       <div class="header-left">
-        <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
+        <img  class="rose-logo" src="./images/logo.png" alt="logo">
         <span><a href="index.html">Flora Boutique</a></span>
       </div>
       
@@ -137,18 +137,18 @@ $jsDataByCategory = json_encode($dataByCategory);
 
   
   var resultsData = [
-    { name: names['mariage'].names[0], imgSrc: names['mariage'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['mariage'].price[0], state: names['mariage'].state[0] },
-    { name: names['valentine'].names[0], imgSrc: names['valentine'].img_src[0], altText: 'Rose Flower', quantityId: 'q2', price: "$" + names['valentine'].price[0] , state: names['mariage'].state[0] },
-    { name: names['anniversaire'].names[0], imgSrc: names['anniversaire'].img_src[0], altText: 'Assorted Colors', quantityId: 'q3', price: "$" + names['anniversaire'].price[0] , state: names['mariage'].state[0] },
-    { name: names['mariage'].names[1], imgSrc: names['mariage'].img_src[1], altText: 'Daisy Flowers', quantityId: 'q4', price: "$" + names['mariage'].price[1] , state: names['mariage'].state[1]},
-    { name: names['valentine'].names[1], imgSrc: names['valentine'].img_src[1], altText: 'Peonies and Lilies', quantityId: 'q5', price: "$" + names['valentine'].price[1] , state: names['mariage'].state[1]},
-    { name: names['anniversaire'].names[1], imgSrc: names['anniversaire'].img_src[1], altText: 'Alstroemeria', quantityId: 'q6', price: "$" + names['anniversaire'].price[1] , state: names['mariage'].state[1]},
-    { name: names['mariage'].names[2], imgSrc: names['mariage'].img_src[2], altText: 'Turkish Rose', quantityId: 'q7', price: "$" + names['mariage'].price[2] , state: names['mariage'].state[2]},
-    { name: names['valentine'].names[2], imgSrc: names['valentine'].img_src[2], altText: 'Rose Flower', quantityId: 'q8', price: "$" + names['valentine'].price[2] , state: names['mariage'].state[2]},
-    { name: names['anniversaire'].names[2], imgSrc: names['anniversaire'].img_src[2], altText: 'Assorted Colors', quantityId: 'q9', price: "$" + names['anniversaire'].price[2] , state: names['mariage'].state[2]},
-    { name: names['mariage'].names[3], imgSrc: names['mariage'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['mariage'].price[3] , state: names['mariage'].state[3]},
-    { name: names['valentine'].names[3], imgSrc: names['valentine'].img_src[3], altText: 'Rose Flower', quantityId: 'q11', price: "$" + names['valentine'].price[3] , state: names['mariage'].state[3]},
-    { name: names['anniversaire'].names[3], imgSrc: names['anniversaire'].img_src[3], altText: 'Assorted Colors', quantityId: 'q12', price: "$" + names['anniversaire'].price[3] , state: names['mariage'].state[3]}
+    { name: names['mariage'].names[0], imgSrc: names['mariage'].img_src[0],   price: "$" + names['mariage'].price[0], state: names['mariage'].state[0] },
+    { name: names['valentine'].names[0], imgSrc: names['valentine'].img_src[0],   price: "$" + names['valentine'].price[0] , state: names['mariage'].state[0] },
+    { name: names['anniversaire'].names[0], imgSrc: names['anniversaire'].img_src[0],   price: "$" + names['anniversaire'].price[0] , state: names['mariage'].state[0] },
+    { name: names['mariage'].names[1], imgSrc: names['mariage'].img_src[1],  price: "$" + names['mariage'].price[1] , state: names['mariage'].state[1]},
+    { name: names['valentine'].names[1], imgSrc: names['valentine'].img_src[1],   price: "$" + names['valentine'].price[1] , state: names['mariage'].state[1]},
+    { name: names['anniversaire'].names[1], imgSrc: names['anniversaire'].img_src[1],   price: "$" + names['anniversaire'].price[1] , state: names['mariage'].state[1]},
+    { name: names['mariage'].names[2], imgSrc: names['mariage'].img_src[2],   price: "$" + names['mariage'].price[2] , state: names['mariage'].state[2]},
+    { name: names['valentine'].names[2], imgSrc: names['valentine'].img_src[2],   price: "$" + names['valentine'].price[2] , state: names['mariage'].state[2]},
+    { name: names['anniversaire'].names[2], imgSrc: names['anniversaire'].img_src[2],   price: "$" + names['anniversaire'].price[2] , state: names['mariage'].state[2]},
+    { name: names['mariage'].names[3], imgSrc: names['mariage'].img_src[3],   price: "$" + names['mariage'].price[3] , state: names['mariage'].state[3]},
+    { name: names['valentine'].names[3], imgSrc: names['valentine'].img_src[3],   price: "$" + names['valentine'].price[3] , state: names['mariage'].state[3]},
+    { name: names['anniversaire'].names[3], imgSrc: names['anniversaire'].img_src[3],   price: "$" + names['anniversaire'].price[3] , state: names['mariage'].state[3]}
 ];
 
   function generateResultHTML(result, index) {
@@ -159,11 +159,11 @@ $jsDataByCategory = json_encode($dataByCategory);
         <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
         <div class="img-frame">
           <a href="product.php">
-            <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}')">
+            <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}','${result.state}')">
           </a>
         </div>
         <span>${result.name}</span>
-        <span class="price-span">${result.price} <a href="product.php"><i class="fa fa-shopping-cart" aria-hidden="true" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}')"></i></a></span>
+        <span class="price-span">${result.price} <a href="product.php"><i class="fa fa-shopping-cart" aria-hidden="true" ></i></a></span>
         <span class="price-span" style="color: ${color}; font-size:22px;">${result.state}</span>
 
       </div>
@@ -171,11 +171,12 @@ $jsDataByCategory = json_encode($dataByCategory);
   }
  
 
-function storeProductData(name, price, imgSrc) {
+  function storeProductData(name, price, imgSrc, state) {
   const productData = {
     name: name,
     price: price,
-    imgSrc: imgSrc
+    imgSrc: imgSrc,
+    state: state
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
   console.log("Product data stored in session storage:", productData);
@@ -197,12 +198,12 @@ function storeProductData(name, price, imgSrc) {
   
   
   const resultsData2 = [
-    { name: names['anniversaire'].names[0], imgSrc: names['anniversaire'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['anniversaire'].price[0], state: names['anniversaire'].state[0] },
-    { name: names['anniversaire'].names[1], imgSrc: names['anniversaire'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['anniversaire'].price[1] , state: names['anniversaire'].state[1] },
-    { name: names['anniversaire'].names[2], imgSrc: names['anniversaire'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['anniversaire'].price[2], state: names['anniversaire'].state[2] },
-    { name: names['anniversaire'].names[3], imgSrc: names['anniversaire'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['anniversaire'].price[3] , state: names['anniversaire'].state[3] },
-    { name: names['anniversaire'].names[4], imgSrc: names['anniversaire'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price: "$" + names['anniversaire'].price[4] , state: names['anniversaire'].state[4]},
-    { name: names['anniversaire'].names[5], imgSrc: names['anniversaire'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price: "$" + names['anniversaire'].price[5] , state: names['anniversaire'].state[5]}
+    { name: names['anniversaire'].names[0], imgSrc: names['anniversaire'].img_src[0],   price: "$" + names['anniversaire'].price[0], state: names['anniversaire'].state[0] },
+    { name: names['anniversaire'].names[1], imgSrc: names['anniversaire'].img_src[1],   price: "$" + names['anniversaire'].price[1] , state: names['anniversaire'].state[1] },
+    { name: names['anniversaire'].names[2], imgSrc: names['anniversaire'].img_src[2],   price: "$" + names['anniversaire'].price[2], state: names['anniversaire'].state[2] },
+    { name: names['anniversaire'].names[3], imgSrc: names['anniversaire'].img_src[3],   price: "$" + names['anniversaire'].price[3] , state: names['anniversaire'].state[3] },
+    { name: names['anniversaire'].names[4], imgSrc: names['anniversaire'].img_src[4],   price: "$" + names['anniversaire'].price[4] , state: names['anniversaire'].state[4]},
+    { name: names['anniversaire'].names[5], imgSrc: names['anniversaire'].img_src[5],   price: "$" + names['anniversaire'].price[5] , state: names['anniversaire'].state[5]}
   ];
 
   function generateResultHTML(result, index) {
@@ -212,7 +213,7 @@ function storeProductData(name, price, imgSrc) {
       <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
       <div class="img-frame">
         <a href="product.php">
-          <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}')">
+          <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}','${result.state}')">
         </a>
       </div>
    
@@ -225,12 +226,12 @@ function storeProductData(name, price, imgSrc) {
 }
 
 
-
-function storeProductData(name, price, imgSrc) {
+function storeProductData(name, price, imgSrc, state) {
   const productData = {
     name: name,
     price: price,
-    imgSrc: imgSrc
+    imgSrc: imgSrc,
+    state: state
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
 
@@ -252,12 +253,12 @@ function storeProductData(name, price, imgSrc) {
   var names = <?php echo $jsDataByCategory; ?>;
   
   const resultsData3 = [
-    { name: names['mariage'].names[0], imgSrc: names['mariage'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['mariage'].price[0] , state: names['mariage'].state[0] },
-    { name: names['mariage'].names[1], imgSrc: names['mariage'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['mariage'].price[1]  , state: names['mariage'].state[1]},
-    { name: names['mariage'].names[2], imgSrc: names['mariage'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['mariage'].price[2] , state: names['mariage'].state[2] },
-    { name: names['mariage'].names[3], imgSrc: names['mariage'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['mariage'].price[3]  , state: names['mariage'].state[3]},
-    { name: names['mariage'].names[4], imgSrc: names['mariage'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price:  "$" + names['mariage'].price[4]  , state: names['mariage'].state[4]},
-    { name: names['mariage'].names[5], imgSrc: names['mariage'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price:  "$" + names['mariage'].price[5]  , state: names['mariage'].state[5]}
+    { name: names['mariage'].names[0], imgSrc: names['mariage'].img_src[0],   price: "$" + names['mariage'].price[0] , state: names['mariage'].state[0] },
+    { name: names['mariage'].names[1], imgSrc: names['mariage'].img_src[1],   price: "$" + names['mariage'].price[1]  , state: names['mariage'].state[1]},
+    { name: names['mariage'].names[2], imgSrc: names['mariage'].img_src[2],   price: "$" + names['mariage'].price[2] , state: names['mariage'].state[2] },
+    { name: names['mariage'].names[3], imgSrc: names['mariage'].img_src[3],   price: "$" + names['mariage'].price[3]  , state: names['mariage'].state[3]},
+    { name: names['mariage'].names[4], imgSrc: names['mariage'].img_src[4],   price:  "$" + names['mariage'].price[4]  , state: names['mariage'].state[4]},
+    { name: names['mariage'].names[5], imgSrc: names['mariage'].img_src[5],   price:  "$" + names['mariage'].price[5]  , state: names['mariage'].state[5]}
   ];
 
   function generateResultHTML(result, index) {
@@ -267,7 +268,7 @@ function storeProductData(name, price, imgSrc) {
         <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
         <div class="img-frame">
           <a href="product.php">
-            <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}')">
+            <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}','${result.state}')">
           </a>
         </div>
         <span>${result.name}</span>
@@ -277,11 +278,12 @@ function storeProductData(name, price, imgSrc) {
     `;
   }
 
-  function storeProductData(name, price, imgSrc) {
+  function storeProductData(name, price, imgSrc, state) {
   const productData = {
     name: name,
     price: price,
-    imgSrc: imgSrc
+    imgSrc: imgSrc,
+    state: state
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
 
@@ -300,12 +302,12 @@ function storeProductData(name, price, imgSrc) {
 
   
       const resultsData4 = [
-    { name: names['valentine'].names[0], imgSrc: names['valentine'].img_src[0], altText: 'Turkish Rose', quantityId: 'q1', price: "$" + names['valentine'].price[0] , state: names['valentine'].state[0]  },
-    { name: names['valentine'].names[1], imgSrc: names['valentine'].img_src[1], altText: 'Rose Flower', quantityId: 'q4', price: "$" + names['valentine'].price[1] , state: names['valentine'].state[1]},
-    { name: names['valentine'].names[2], imgSrc: names['valentine'].img_src[2], altText: 'Assorted Colors', quantityId: 'q7', price: "$" + names['valentine'].price[2] , state: names['valentine'].state[2]},
-    { name: names['valentine'].names[3], imgSrc: names['valentine'].img_src[3], altText: 'Daisy Flowers', quantityId: 'q10', price: "$" + names['valentine'].price[3] , state: names['valentine'].state[3]},
-    { name: names['valentine'].names[4], imgSrc: names['valentine'].img_src[4], altText: 'Alstroemeria', quantityId: 'q13', price: "$" + names['valentine'].price[4] , state: names['valentine'].state[4]},
-    { name: names['valentine'].names[5], imgSrc: names['valentine'].img_src[5], altText: 'Peonies and Lilies', quantityId: 'q16', price: "$" + names['valentine'].price[5] , state: names['valentine'].state[5]}
+    { name: names['valentine'].names[0], imgSrc: names['valentine'].img_src[0],   price: "$" + names['valentine'].price[0], state: names['valentine'].state[0]  },
+    { name: names['valentine'].names[1], imgSrc: names['valentine'].img_src[1],   price: "$" + names['valentine'].price[1], state: names['valentine'].state[1]},
+    { name: names['valentine'].names[2], imgSrc: names['valentine'].img_src[2],   price: "$" + names['valentine'].price[2], state: names['valentine'].state[2]},
+    { name: names['valentine'].names[3], imgSrc: names['valentine'].img_src[3],   price: "$" + names['valentine'].price[3], state: names['valentine'].state[3]},
+    { name: names['valentine'].names[4], imgSrc: names['valentine'].img_src[4],   price: "$" + names['valentine'].price[4], state: names['valentine'].state[4]},
+    { name: names['valentine'].names[5], imgSrc: names['valentine'].img_src[5],   price: "$" + names['valentine'].price[5], state: names['valentine'].state[5]}
 ];
 
   function generateResultHTML(result, index) {
@@ -315,24 +317,25 @@ function storeProductData(name, price, imgSrc) {
         <i class="fa fa-heart-o" aria-hidden="true" onclick="changeClass2(this)"></i>
         <div class="img-frame">
           <a href="product.php">
-            <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}')">
+            <img src="${result.imgSrc}" alt="${result.altText}" onclick="storeProductData('${result.name}', '${result.price}', '${result.imgSrc}','${result.state}')">
           </a>
         </div>
         <span>${result.name}</span>
         <span class="price-span">${result.price} <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-        <span class="price-span" style="color: ${color}; font-size:22px;">${result.state}</span>
+        <span class="price-span" style="color: ${color}; font-size:22px;">${result.state} </span>
       </div>
     `;
   }
 
-  function storeProductData(name, price, imgSrc) {
+  
+function storeProductData(name, price, imgSrc, state) {
   const productData = {
     name: name,
     price: price,
-    imgSrc: imgSrc
+    imgSrc: imgSrc,
+    state: state
   };
   sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
- 
 }
 
   const resultsContainer4 = document.getElementById('results-container4');
