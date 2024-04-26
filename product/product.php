@@ -72,7 +72,7 @@ if (isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SE
   <header>
     <div class="header">
       <div class="header-left">
-        <img  class="rose-logo" src="./images/rose-logo.png" alt="logo">
+        <img  class="rose-logo" src="./images/logo.png"  alt="logo">
         <span><a href="index.html">Flora Boutique</a></span>
         
       </div>
@@ -82,61 +82,89 @@ if (isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == 1 && isset($_SE
 
   <main class="main-container">
     <div class="selected-product">
-      <div class="product-img">
+    <script>
+    // Retrieve state from sessionStorage
+    var productData = JSON.parse(sessionStorage.getItem('selectedProduct'));
+    var state = productData ? productData.state : '';
+  
 
-        <div class="main-img-frame">
-          <img src="" alt="Turkish Rose">
-        </div>
-      </div>
-      <div class="product-info">
-        <div class="product-title line">
-          <h1></h1>
-          <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-        </div>
-        <div class="size line">Size:</div>
-        <div class="size-options line">
-          <form class="quantity">
-            <input type="radio" id="q1" name="quantity" checked><label for="q1">9 unt.</label>
-            <input type="radio" id="q2" name="quantity"><label for="q2">15 unt.</label>
-            <input type="radio" id="q3" name="quantity"><label for="q3">21 unt.</label>
-            <input type="radio" id="q4" name="quantity"><label for="q4">31 unt.</label>
-          </form>
-        </div>
-        <div class="other-options line">
-          <div class="delivery">
-          <span>Quantity:</span>
-            <div class="stepper">
-              <button id="decrement" onclick="stepper(this)"> - </button>
-              <input type="number" min="0" max="20" step="1" value="1" id="my-input" readonly>
-              <button id="increment" onclick="stepper(this)"> + </button>
+    if (state === "on stock" || state=="main") {
+        document.write(`
+            <div class="product-img">
+                <div class="main-img-frame">
+                    <img src="" alt="Turkish Rose">
+                </div>
             </div>
-          </div>
-          <div class="delivery">
-        <span>Delivery:</span>
-        <div class="delivery-options">
-        <div class="quantity ">
-          <input type="radio" id="q5" name="quantity" checked  ><label for="q5" >By courier</label>
-          <input type="radio" id="q6" name="quantity"><label for="q6">Pick up</label>
-      
-        </div>
-    </div>
-</div>
-
-        </div>
-        <div class="total line">
-          <span>Price:</span>
-          <span class="price"> </span>
-          <form id="buy-form" action="" method="post" onsubmit="return sign()">
-          <input type="hidden" id="product-title" name="product_title">
-          <input type="hidden" id="product-size" name="product_size">
-          <input type="hidden" id="product-quantity" name="product_quantity">
-          <input type="hidden" id="product-price" name="product_price">
-          <input type="hidden" id="product-delivery" name="product_delivery">
-          <input type="submit" class="cart-btn" value="Add to Cart" name="addToCart">
-          <input type="submit" class="buy-btn" value="Buy" name="buy">
-        </form>
-        </div>
-      </div>
+            <div class="product-info">
+                <div class="product-title line">
+                    <h1></h1>
+                    <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                </div>
+                <div class="size line">Size:</div>
+                <div class="size-options line">
+                    <form class="quantity">
+                        <input type="radio" id="q1" name="quantity" checked><label for="q1">9 unt.</label>
+                        <input type="radio" id="q2" name="quantity"><label for="q2">15 unt.</label>
+                        <input type="radio" id="q3" name="quantity"><label for="q3">21 unt.</label>
+                        <input type="radio" id="q4" name="quantity"><label for="q4">31 unt.</label>
+                    </form>
+                </div>
+                <div class="other-options line">
+                    <div class="delivery">
+                        <span>Quantity:</span>
+                        <div class="stepper">
+                            <button id="decrement" onclick="stepper(this)"> - </button>
+                            <input type="number" min="0" max="20" step="1" value="1" id="my-input" readonly>
+                            <button id="increment" onclick="stepper(this)"> + </button>
+                        </div>
+                    </div>
+                    <div class="delivery">
+                        <span>Delivery:</span>
+                        <div class="delivery-options">
+                            <div class="quantity ">
+                                <input type="radio" id="q5" name="quantity" checked><label for="q5">By courier</label>
+                                <input type="radio" id="q6" name="quantity"><label for="q6">Pick up</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="total line">
+                    <span>Price:</span>
+                    <span class="price"> </span>
+                    <form id="buy-form" action="" method="post" onsubmit="return sign()">
+                        <input type="hidden" id="product-title" name="product_title">
+                        <input type="hidden" id="product-size" name="product_size">
+                        <input type="hidden" id="product-quantity" name="product_quantity">
+                        <input type="hidden" id="product-price" name="product_price">
+                        <input type="hidden" id="product-delivery" name="product_delivery">
+                        <input type="submit" class="cart-btn" value="Add to Cart" name="addToCart">
+                        <input type="submit" class="buy-btn" value="Buy" name="buy">
+                    </form>
+                </div>
+            </div>
+        `);
+    } else {
+      document.write(`
+      <div class="product-img">
+                <div class="main-img-frame">
+                    <img src="" alt="Turkish Rose">
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-title line">
+                    <h1></h1>
+                    <a href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                </div>
+                <div class="total line">
+                    <span>Price:</span>
+                    <span class="price"> </span>
+                   
+                </div>
+                <h1 style="color : red ; margin : 50px 250px">Out of stock </h1>
+            </div>
+        `);
+    }
+</script>
     </div>
     
 
